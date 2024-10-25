@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .bg-hacker {
+    background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTJtMTR0d242bzFlOWc1Y3Qxc2ZmbXZ6dGc1eWUxdDNodjJ4OWhiZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjHWbXcpeKhTktXi/giphy.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+#preloader{
+  background: rgb(17 24 39) url(src/assets/loader.gif) no-repeat center center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+
