@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react';
-import animarionData from "/src/assets/Animation - 1729794572548.json"
+import animarionData from "./assets/Animation.json"
 
 function Header() {
   return(
