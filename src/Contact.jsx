@@ -32,10 +32,7 @@ function Contact() {
              <p className="pl-2"> Omar Aidi</p>
             </a>  
           </div>
-
-          <p class="mb-3 font-normal text-white dark:text-gray-400">
-           
-          </p>
+          
         </div>
       </div>
     </div>
