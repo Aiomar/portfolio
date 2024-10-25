@@ -8,7 +8,7 @@ function Projects() {
 
           <div className="hover:scale-90">
             <div class="max-w-sm p-6 b  bg-gray-800 border border-gray-600 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700">
-              <img src="src/assets/Screenshot 2024-10-24 153657.png" alt="" className="rounded-2xl"/>
+              <img src="/assets/Screenshot 2024-10-24 153657.png" alt="" className="rounded-2xl"/>
                 <a href="#">
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">Shoping TN</h5>
                 </a>

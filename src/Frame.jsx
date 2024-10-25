@@ -6,37 +6,37 @@ function Frame() {
           <div className="flex flex-wrap justify-center space-x-4">
             <div>
               <a href="https://laravel.com/" target="_blank">
-                <img src="src/assets/laravel-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
+                <img src="/assets/laravel-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
               </a>
             </div>
             <div>
               <a href="https://nodejs.org/en" target="_blank">
-                <img src="src/assets/nodejs-1-logo-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
+                <img src="/assets/nodejs-1-logo-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
               </a>
             </div>
             <div>
               <a href="https://react.dev/" target="_blank">
-                <img src="src/assets/react-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
+                <img src="/assets/react-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
               </a>
             </div>
             <div>
               <a href="https://tailwindcss.com/" target="_blank">
-                <img src="src/assets/tailwind-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
+                <img src="/assets/tailwind-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
               </a>
             </div>
             <div>
               <a href="https://v4.vitejs.dev/" target="_blank">
-                <img src="src/assets/vite.svg" className="w-20 hover:scale-75" alt="" />
+                <img src="/assets/vite.svg" className="w-20 hover:scale-75" alt="" />
               </a>
             </div>
             <div>
               <a href="https://www.mysql.com/" target="_blank">
-                <img src="src/assets/mysql-logo-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
+                <img src="/assets/mysql-logo-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
               </a>          
             </div>
             <div>
               <a href="https://mariadb.org/" target="_blank">
-                <img src="src/assets/mariadb-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
+                <img src="/assets/mariadb-svgrepo-com.svg" className="w-20 hover:scale-75" alt="" />
               </a>         
             </div>
           </div>

@@ -2,7 +2,7 @@ function Card() {
   return(
   <div id="home-card" class="mb-2 md:w-4/12 w-11/12 p-6 bg-gray-900 border border-gray-600 rounded-3xl shadow-lg  hover:bg-slate-900 dark:bg-gray-800 dark:border-gray-700">
     <div>
-      <img src="src\assets\avater.png" class="rounded-full w-40 border-gray-50" alt="" />
+      <img src="/assets/avater.png" class="rounded-full w-40 border-gray-50" alt="" />
     </div>
     <a href="#">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">Hi, I'm Omar </h5>
