@@ -7,28 +7,28 @@ function Contact() {
 
           <div className="flex flex-wrap justify-center space-x-4">
             <a href="https://mailto:aidi360omar@gmail.com/" className="text-white flex hover:scale-110" target="_blank">
-              <img src="src/assets/gmail-svgrepo-com.svg" className="w-5 hover" alt="" /> 
+              <img src="/assets/gmail-svgrepo-com.svg" className="w-5 hover" alt="" /> 
               <p className="pl-2">aidi360omar@gmail.com</p>
             </a>  
           </div>
 
           <div className="flex flex-wrap space-x-4">
             <a href="https://www.facebook.com/omar.aidi.12139/" className="text-white flex hover:scale-110" target="_blank">
-              <img src="src/assets/facebook-1-svgrepo-com.svg" className="w-5" alt="" /> 
+              <img src="/assets/facebook-1-svgrepo-com.svg" className="w-5" alt="" /> 
               <p className="pl-2">Omar Aidi</p>
             </a>  
           </div>
 
           <div className="flex flex-wrap space-x-4">
             <a href="https://www.instagram.com/omar.ai.di/" className="text-white flex hover:scale-110" target="_blank">
-              <img src="src/assets/instagram-social-media-network-communication-interaction-connection-svgrepo-com.svg" className="w-5" alt="" /> 
+              <img src="/assets/instagram-social-media-network-communication-interaction-connection-svgrepo-com.svg" className="w-5" alt="" /> 
               <p className="pl-2">omar.ai.di</p>
             </a>  
           </div>
 
           <div className="flex flex-wrap space-x-4">
             <a href="https://discord.gg/dzWm6DCztZ" className="text-white flex hover:scale-110" target="_blank">
-              <img src="src\assets\discord-icon-svgrepo-com.svg" className="w-5" alt="" /> 
+              <img src="/assets/discord-icon-svgrepo-com.svg" className="w-5" alt="" /> 
              <p className="pl-2"> Omar Aidi</p>
             </a>  
           </div>
