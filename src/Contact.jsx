@@ -6,7 +6,7 @@ function Contact() {
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">Contact Info</h5>
 
           <div className="flex flex-wrap justify-center space-x-4">
-            <a href="https://mailto:aidi360omar@gmail.com/" className="text-white flex hover:scale-110" target="_blank">
+            <a href="mailto:aidi360omar@gmail.com/" className="text-white flex hover:scale-110" target="_blank">
               <img src="/assets/gmail-svgrepo-com.svg" className="w-5 hover" alt="" /> 
               <p className="pl-2">aidi360omar@gmail.com</p>
             </a>  
