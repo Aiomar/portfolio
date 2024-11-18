@@ -28,17 +28,17 @@ function Bio() {
           <img
             src="assets/code2.png"
             alt=""
-            className="w-96 rounded-2xl mb-5 md:mb-0 shadow-md shadow-sky-400 hover:scale-105 hover:mr-2 "
+            className="w-96 rounded-2xl mb-5 ml-4 mr-4 md:mr-0 md:ml-0 md:mb-0 shadow-md shadow-sky-400 hover:scale-105 hover:mr-2 "
           />
           <img
             src="assets/code1.png"
             alt=""
-            className="w-96 rounded-2xl md:ml-4 mb-5 md:mb-0 shadow-md shadow-sky-400 hover:scale-105 hover:ml-6 hover:mr-2"
+            className="w-96 rounded-2xl  ml-4 mr-4 md:ml-4  md:mr-0 mb-5 md:mb-0 shadow-md shadow-sky-400 hover:scale-105 hover:ml-6 hover:mr-2"
           />
           <img
             src="assets/code3.png"
             alt=""
-            className="w-96 rounded-2xl md:ml-4 mb-5 md:mb-0 shadow-md shadow-sky-400 hover:scale-105 hover:ml-6 hover:mr-2"
+            className="w-96 rounded-2xl md:ml-4 mb-5 md:mb-0  ml-4 mr-4 md:mr-0 shadow-md shadow-sky-400 hover:scale-105 hover:ml-6 hover:mr-2"
           />
         </div>
       </div>
