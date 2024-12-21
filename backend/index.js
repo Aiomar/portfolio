@@ -1,0 +1,344 @@
+//Creating Server with Express / require packages
+const express = require("express");
+const cors = require("cors");
+const multer = require("multer");
+const validator = require("validator");
+require("dotenv").config();
+const path = require("path");
+const app = express();
+const port = 3000;
+const crypto = require("crypto");
+const cookieParser = require("cookie-parser");
+const { error } = require("console");
+const rateLimit = require("express-rate-limit");
+
+//Use cors package to allow cros origin requests
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
+
+const loginlimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+  standardHeaders: "draft-8", // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+  // store: ... , // Redis, Memcached, etc. See below.
+  message:
+    "Too many login attempts from this IP, please try again after 15 minutes.",
+});
+
+//use cookie parser middleware
+app.use(cookieParser());
+
+//Connecting to mongo db and verification
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/portfolio");
+
+const db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "connection error : "));
+
+db.once("open", () => {
+  console.log("connected to mongo db");
+});
+
+//import suggestion model from Models
+const bodyParser = require("body-parser");
+const SuggestionsModel = require("./Models/Suggestion");
+
+//body parser package
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//Models required
+const StackModel = require("./Models/Stack");
+const ProjectModel = require("./Models/Project");
+const { inflate } = require("zlib");
+
+//Portfolio
+//Suggestions form handling
+app.post("/suggestion", (req, res) => {
+  //Insertion de suggestion dans la base portfolio/suggestions (Mongodb)
+  let suggestion = req.body;
+  suggestion.uploadedAt = new Date();
+  let message = "Your Suggestion sended with succes ! ";
+
+  //query
+  db.collection("suggestions")
+    .insertOne(suggestion)
+    .then((result) => {
+      res.status(201).redirect("http://localhost:5173/?message=" + message);
+    })
+    .catch((error) => {
+      res
+        .status(500)
+        .json({ error: "Could Not insert sugestions" + error.message });
+    });
+});
+
+//Auth
+app.post("/login", loginlimiter, async (req, res) => {
+  const { email, password } = req.body;
+
+  //Verfication if email and password correct
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and Password is required" });
+  } // validate email with validator js
+  else if (!validator.isEmail(email)) {
+    return res.status(400).json({ message: "email incorrect is required" });
+  }
+
+  //*Session logic handling
+  //get user ip adress
+  const ip = req.headers["x-forwaded-for"] || req.socket.remoteAddress;
+  //generate a unique token using nodejs builtin crypto package
+  const token = crypto.randomBytes(16).toString("hex");
+  //Session creation
+  session = {
+    token: token,
+    ip: ip,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+
+  //Verification + Authentication
+  if (
+    email === process.env.DASHBOARD_EMAIL &&
+    password === process.env.DASHBOARD_PASSWORD
+  ) {
+    try {
+      await db.collection("sessions").insertOne(session);
+
+      // save the tooken in a cookie
+      res.cookie("authToken", token, {
+        httpOnly: true, //prevnet client side js script edit
+        secure: false, //!set true in production
+        maxAge: 24 * 60 * 60 * 1000, // 1 day,
+        sameSite: "strict", // this protects from CSRF attacks
+      });
+
+      return res.status(200).json({ messag: "success ", token });
+    } catch (err) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+  } else {
+    return res.status(401).json({ message: "wrong email or passsword" });
+  }
+});
+
+//verifiy cookies authToken and db sessions token
+app.get("/auth", async (req, res) => {
+  const token = req.cookies.authToken;
+
+  if (!token) {
+    return res.status(401).json({ message: "Unauthorized: No token provided" });
+  }
+
+  try {
+    const session = await db.collection("sessions").findOne({ token });
+
+    if (!session) {
+      return res.status(401).json({ message: "Unauthorized: invalid token " });
+    }
+
+    return res.status(200).json({ auth: true });
+  } catch (err) {
+    return res.status(401).json({ error: err });
+  }
+});
+
+//Dashboard
+//Project Posting handling
+
+//The disk storage engine gives you full control on storing files to disk.
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../public/uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
+});
+
+//call and define multer upload method
+const upload = multer({ storage: storage });
+
+//static file serving
+app.use(express.static("public"));
+
+//HTTP req with express [method : post]
+app.post("/upload-project", upload.single("image"), (req, res) => {
+  let project = req.body;
+
+  if (req.file) {
+    project.image = `/uploads/${req.file.filename}`;
+  }
+
+  let message = "Project Posted with succes !";
+  //Insert query to mongodb in protfolio projects collection
+  db.collection("projects")
+    .insertOne(project)
+    .then((result) => {
+      res
+        .status(201)
+        .redirect(
+          "http://localhost:5173/dashboard/current-projects/?message=" + message
+        );
+    })
+    .catch((error) => {
+      res
+        .status(500)
+        .json({ error: "Could not insert project " + error.message });
+    });
+});
+
+//Projects
+//Project fetching from mongodb : portfolio/projects (db/collection)
+app.get("/projects", async (req, res) => {
+  try {
+    const projects = await ProjectModel.find();
+
+    res.status(200).json(projects);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Could not fecth projects " + error.message });
+  }
+});
+
+//Project Update API
+app.patch("/project/:id", upload.single("image"), async (req, res) => {
+  try {
+    //get id from request parameter
+    const { id } = req.params;
+
+    //get request body
+    const updatedData = req.body;
+
+    //handle upload image file
+    if (req.file) {
+      updatedData.image = `/uploads/${req.file.filename}`;
+    }
+
+    //delete empty fileds
+    Object.keys(updatedData).forEach((key) => {
+      if (updatedData[key] === "" && key !== "image") {
+        delete updatedData[key];
+      }
+    });
+
+    //query to update project in mongodb
+    const updatedProject = await ProjectModel.findByIdAndUpdate(
+      id,
+      updatedData,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    //verifiy if the project exist in the db
+    if (!updatedProject) {
+      return res.status(404).json({ message: "Cannot find Project" });
+    }
+
+    res.status(200).json(updatedProject);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+//Project Delete API
+app.delete("/project/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await ProjectModel.findByIdAndDelete(id);
+
+    if (!result) {
+      return res.status(404).json({ message: "Project Not Found" });
+    }
+
+    return res.status(200).json({ message: "Succes" });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+//Suggestions fetching from mongo db
+app.get("/suggestions", async (req, res) => {
+  try {
+    const suggestions = await SuggestionsModel.find();
+    res.status(200).json(suggestions);
+  } catch (error) {
+    res.status(500).json({
+      error: "Could not fetch suggestions from mongodb" + error.message,
+    });
+  }
+});
+
+//Suggestion delete
+app.delete("/suggestion/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await SuggestionsModel.findByIdAndDelete(id);
+
+    if (!result) {
+      return res.status(404).json({ message: "Suggestion not found" });
+    }
+
+    return res.status(200).json({ message: "Suggestion Deleted Succesfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+//TODO correct the nav link text-color changing logic when a section is in view port
+
+//Tech Stack Form Upload controller
+app.post("/techstack", upload.single("logo"), (req, res) => {
+  const stack = req.body;
+
+  if (req.file) {
+    stack.logo = `/uploads/${req.file.filename}`;
+  }
+
+  const message = "Sucess";
+
+  //insert query to mongodb in protfolio techstack collection
+  db.collection("techstacks")
+    .insertOne(stack)
+    .then((result) => {
+      res
+        .status(201)
+        .redirect(
+          "http://localhost:5173/dashboard/techstack/?message=" + message
+        );
+    })
+    .catch((error) => {
+      res
+        .status(500)
+        .json({ error: "Could not add to tech stack " + error.message });
+    });
+});
+
+//Tech stack fetching from mongo db protfolio techstack collection
+app.get("/techstack", async (req, res) => {
+  try {
+    let techstack = await StackModel.find();
+    res.status(200).json(techstack);
+  } catch (error) {
+    res.status(500).json({
+      error: "could not fetch techstack from mongodb" + error.message,
+    });
+  }
+});
+
+//serve the backend serever
+const PORT = process.env.Port || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port :${PORT}`);
+});
