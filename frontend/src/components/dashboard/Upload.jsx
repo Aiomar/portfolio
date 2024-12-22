@@ -8,7 +8,6 @@ export default function Upload() {
   //retrieve the id from the location state
   const location = useLocation();
   const id = location.state?.id;
-  console.log("id : ", id); //!debug
 
   const [action, setAction] = useState("");
   const [method, setMethod] = useState("");
@@ -23,8 +22,6 @@ export default function Upload() {
       setMethod("POST");
     }
   }, [id]);
-  console.log("Action URL:", action); //! Debug
-  console.log("Method:", method); //! Debug
 
   return (
     <>

@@ -351,7 +351,7 @@ app.get("/techstack", async (req, res) => {
   }
 });
 
-//tech stack
+//tech stack delete Api
 app.delete("/techstack/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -366,6 +366,40 @@ app.delete("/techstack/:id", async (req, res) => {
     return res.status(200).json({ message: "Succes" });
   } catch (error) {
     return res.status(500).json({ error: error.message });
+  }
+});
+
+//tech stack update Api
+app.patch("/techstack/:id", upload.single("image"), async (req, res) => {
+  try {
+    const id = req.params.id;
+    const data = req.body;
+
+    //handle upload image file
+    if (req.file) {
+      data.image = `/uploads/${req.file.filename}`;
+    }
+
+    //delete empty fileds
+    Object.keys(data).forEach((key) => {
+      if (data[key] === "" && key !== "image") {
+        delete data[key];
+      }
+    });
+
+    //query to mongodb to update an item in the tech stack
+    const updatedStack = await StackModel.findByIdAndUpdate(id, data);
+
+    //verification and response
+    if (!updatedStack) {
+      return res
+        .status(404)
+        .json({ message: "couldnt find item in techStack" });
+    }
+
+    return res.status(201).json({ message: "item updated succesfully" });
+  } catch (error) {
+    return res.status(500).json({ error: error });
   }
 });
 
