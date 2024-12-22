@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-//Crypto node module to generate a session token 
+//Crypto node module to generate a session token
 const crypto = require("crypto");
 // multer is an npm that handles image uploads
 const multer = require("multer");
@@ -49,20 +49,23 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//other npm packages
-const { error } = require("console");
+//validator package for validating email
 const validator = require("validator");
+
+//error node module
+const { error } = require("console");
+
+// path node module to handle files storing
 const path = require("path");
 
 //MONGODB CONNECTION
 //Connecting to mongo db and verification
+// requiring mongoose package
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/portfolio");
+mongoose.connect(process.env.DATABASE_URL);
 
 const db = mongoose.connection;
-
 db.on("error", console.error.bind(console, "connection error : "));
-
 db.once("open", () => {
   console.log("connected to mongo db");
 });
@@ -81,7 +84,7 @@ app.post("/suggestion", (req, res) => {
   suggestion.uploadedAt = new Date();
   let message = "Your Suggestion sended with succes ! ";
 
-  //insertion query to mongo db 
+  //insertion query to mongo db
   db.collection("suggestions")
     .insertOne(suggestion)
     .then((result) => {
