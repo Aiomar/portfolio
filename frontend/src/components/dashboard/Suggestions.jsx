@@ -4,7 +4,7 @@ export default function Suggestions() {
   const suggestions = FetchSuggestionApi();
 
   return (
-    <div className=" w-full flex flex-col mt-10 h-auto min-h-screen">
+    <div className=" w-full flex flex-col mt-10 ml-5 h-auto min-h-screen">
       <div className="grid grid-cols-3">
         {suggestions
           .sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt))

@@ -11,7 +11,6 @@ require("dotenv").config();
 //CORS
 // cors package  to handle cross origin requests
 const cors = require("cors");
-
 //Use cors package to allow cross origin requests
 app.use(
   cors({
@@ -23,7 +22,6 @@ app.use(
 //REQUEST LIMITER
 // this package limits the numbers of request of a specific rout
 const rateLimit = require("express-rate-limit");
-
 // limit the rate of request on the login API
 const loginlimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -38,13 +36,11 @@ const loginlimiter = rateLimit({
 //COOKIES HANDLING
 // this package handle cookies
 const cookieParser = require("cookie-parser");
-
 //use cookie parser middleware
 app.use(cookieParser());
 
 //BODY PARSER
 const bodyParser = require("body-parser");
-
 //body parser package
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

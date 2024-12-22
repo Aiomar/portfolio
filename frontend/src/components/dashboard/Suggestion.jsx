@@ -11,7 +11,10 @@ export default function suggestion({
   uploadedAt,
 }) {
   return (
-    <div className="block ml-5 max-w-sm p-6 bg-white rounded-2xl  mb-3 min-w-96 min-h-56 shadow hover:scale-95">
+    <div
+      className="block ml-5 max-w-sm p-6 bg-white rounded-2xl  mb-3 min-w-96 min-h-56 shadow 
+      hover:scale-105 hover:shadow-sm hover:shadow-gray-700 hover:ml-7"
+    >
       <div className="float-end">
         <button
           onClick={() => {

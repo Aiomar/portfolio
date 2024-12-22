@@ -14,21 +14,22 @@ function Nav() {
   return (
     <aside
       id="logo-sidebar"
-      className="fixed top-0 left-0 z-40 w-64 h-screen p-2"
+      className="fixed top-0 left-0 z-40 w-72 h-screen  p-1  bg-white"
       aria-label="Sidebar"
     >
-      <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg shadow-gray-300">
+      <div className="h-full px-3 py-4 overflow-y-auto bg-gray-800 rounded-t-xl rounded-r-none ">
         <span
           className="flex justify-center items-center text-xl  font-bold whitespace-nowrap 
-        dark:text-white mb-10 "
+        text-white mb-10 "
         >
           <TbLayoutDashboardFilled className="mr-1" /> Dashboard
         </span>
-        <ul className="space-y-2 font-medium">
+        <span className="text-gray-200">Menu</span>
+        <ul className="space-y-2 font-medium mt-2">
           <li>
             <Link
               to="/dashboard/analytics"
-              className="flex items-center p-2 text-gray-900 font-semibold hover:bg-gray-200 rounded"
+              className="flex items-center p-2 text-gray-100 font-semibold hover:bg-gray-500 rounded"
             >
               <span className="mr-3">
                 <SiGoogleanalytics />
@@ -39,7 +40,7 @@ function Nav() {
           <li>
             <Link
               to="/dashboard/current-projects"
-              className={`flex items-center p-2 text-gray-900 font-semibold hover:bg-gray-200 rounded`}
+              className={`flex items-center p-2 text-gray-100 font-semibold hover:bg-gray-500 rounded`}
             >
               <span className="mr-3">
                 <GoProjectSymlink />
@@ -50,7 +51,7 @@ function Nav() {
           <li>
             <Link
               to="/dashboard/techstack"
-              className="flex items-center p-2 text-gray-900 font-semibold hover:bg-gray-200 rounded"
+              className="flex items-center p-2 text-gray-100 font-semibold hover:bg-gray-500 rounded"
             >
               <span className="mr-3">
                 <MdImportantDevices />
@@ -61,7 +62,7 @@ function Nav() {
           <li>
             <Link
               to="/dashboard/suggestions"
-              className="flex items-center p-2 text-gray-900 font-semibold hover:bg-gray-200 rounded"
+              className="flex items-center p-2 text-gray-100 font-semibold hover:bg-gray-500 rounded"
             >
               <span className="mr-3">
                 <BsChatLeftDots />
@@ -72,7 +73,7 @@ function Nav() {
           <li>
             <Link
               to="/dashboard/upload-project"
-              className="flex items-center p-2 text-gray-900  font-semibold hover:bg-gray-200 rounded"
+              className="flex items-center p-2 text-gray-100  font-semibold hover:bg-gray-500 rounded"
             >
               <span className="mr-3">
                 <MdDriveFolderUpload />
@@ -83,7 +84,7 @@ function Nav() {
           <li>
             <Link
               to="/dashboard/update-techstack"
-              className="flex items-center p-2 text-gray-900  font-semibold hover:bg-gray-200 rounded"
+              className="flex items-center p-2 text-gray-100  font-semibold hover:bg-gray-500 rounded"
             >
               <span className="mr-3">
                 <TbFileUpload />

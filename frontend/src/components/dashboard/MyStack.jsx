@@ -3,8 +3,8 @@ import Tech from "./Tech";
 export default function MyStack() {
   const stacks = FecthStackApi();
   return (
-    <div className="w-full  mt-10 h-screen">
-      <div className="grid grid-cols-6">
+    <div className="  mt-10 h-screen ml-8">
+      <div className="grid grid-cols-5">
         {stacks.map((stack) => (
           <Tech
             key={stack.id}

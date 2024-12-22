@@ -13,7 +13,7 @@ export default function Upload() {
   const [action, setAction] = useState("");
   const [method, setMethod] = useState("");
 
-  //verifiy if the user is updating a project
+  //verifiy if the user is updating a project or uploading a new one
   useEffect(() => {
     if (id) {
       setAction(`http://localhost:3000/project/${id}`);

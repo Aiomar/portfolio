@@ -3,11 +3,11 @@ export default function Stack() {
     <form
       action="http://localhost:3000/techstack"
       method="post"
-      className="ml-5 mt-10 min-h-screen"
+      className="ml-10 mt-10 h-screen"
       encType="multipart/form-data"
     >
       <div className="space-y-12">
-        <div className="border-b border-gray-900/10 pb-12">
+        <div className=" pb-12">
           <div className="mt-4 col-span-full">
             <label
               htmlFor="street-address"

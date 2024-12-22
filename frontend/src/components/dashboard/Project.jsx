@@ -13,7 +13,7 @@ export default function Project({ id, image, title, details, status, link }) {
     <div>
       <div
         className="mt-5 ml-2 max-w-sm bg-gray rounded-2xl bg-white dark:bg-gray-800
-      dark:border-gray-700 h-fit  min-w-96 p-10 pt-3 border shadow"
+      dark:border-gray-700 h-5/6  min-w-96 p-10 pt-3 border shadow m-5"
       >
         <div className="">
           <div className="flex felx-row float-end mb-1">

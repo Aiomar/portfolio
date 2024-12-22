@@ -7,7 +7,7 @@ export default function Dash() {
       <div className="w-64">
         <Nav />
       </div>
-      <div className="w-full h-full p-5 ml-10">
+      <div className="w-full h-full p-1 ml-10">
         <Outlet />
       </div>
     </div>

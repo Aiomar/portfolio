@@ -29,11 +29,11 @@ export default function Form({ action, method }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="ml-5 mt-10 w-full"
+      className="ml-12 mt-10 h-screen"
       encType="multipart/form-data"
     >
       <div className="space-y-12">
-        <div className="border-b border-gray-900/10 pb-12">
+        <div className=" pb-12">
           <div>
             <div
               className="flex justify-center flex-col mt-10  
