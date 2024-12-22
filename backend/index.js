@@ -1,18 +1,18 @@
-//Creating Server with Express / require packages
 const express = require("express");
-const cors = require("cors");
-const multer = require("multer");
-const validator = require("validator");
-require("dotenv").config();
-const path = require("path");
 const app = express();
-const port = 3000;
-const crypto = require("crypto");
-const cookieParser = require("cookie-parser");
-const { error } = require("console");
-const rateLimit = require("express-rate-limit");
 
-//Use cors package to allow cros origin requests
+//Crypto node module to generate a session token 
+const crypto = require("crypto");
+// multer is an npm that handles image uploads
+const multer = require("multer");
+// dotenv for enviroment variables file
+require("dotenv").config();
+
+//CORS
+// cors package  to handle cross origin requests
+const cors = require("cors");
+
+//Use cors package to allow cross origin requests
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -20,6 +20,11 @@ app.use(
   })
 );
 
+//REQUEST LIMITER
+// this package limits the numbers of request of a specific rout
+const rateLimit = require("express-rate-limit");
+
+// limit the rate of request on the login API
 const loginlimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
@@ -30,9 +35,26 @@ const loginlimiter = rateLimit({
     "Too many login attempts from this IP, please try again after 15 minutes.",
 });
 
+//COOKIES HANDLING
+// this package handle cookies
+const cookieParser = require("cookie-parser");
+
 //use cookie parser middleware
 app.use(cookieParser());
 
+//BODY PARSER
+const bodyParser = require("body-parser");
+
+//body parser package
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//other npm packages
+const { error } = require("console");
+const validator = require("validator");
+const path = require("path");
+
+//MONGODB CONNECTION
 //Connecting to mongo db and verification
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/portfolio");
@@ -45,20 +67,13 @@ db.once("open", () => {
   console.log("connected to mongo db");
 });
 
-//import suggestion model from Models
-const bodyParser = require("body-parser");
-const SuggestionsModel = require("./Models/Suggestion");
-
-//body parser package
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 //Models required
+const SuggestionsModel = require("./Models/Suggestion");
 const StackModel = require("./Models/Stack");
 const ProjectModel = require("./Models/Project");
 const { inflate } = require("zlib");
 
-//Portfolio
+//Portfolio APIs
 //Suggestions form handling
 app.post("/suggestion", (req, res) => {
   //Insertion de suggestion dans la base portfolio/suggestions (Mongodb)
@@ -66,7 +81,7 @@ app.post("/suggestion", (req, res) => {
   suggestion.uploadedAt = new Date();
   let message = "Your Suggestion sended with succes ! ";
 
-  //query
+  //insertion query to mongo db 
   db.collection("suggestions")
     .insertOne(suggestion)
     .then((result) => {
@@ -79,7 +94,7 @@ app.post("/suggestion", (req, res) => {
     });
 });
 
-//Auth
+//Auth API
 app.post("/login", loginlimiter, async (req, res) => {
   const { email, password } = req.body;
 
@@ -338,7 +353,7 @@ app.get("/techstack", async (req, res) => {
 });
 
 //serve the backend serever
-const PORT = process.env.Port || 5000;
+const PORT = process.env.Port || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port :${PORT}`);
 });
