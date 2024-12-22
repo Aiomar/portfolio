@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 export default function Form({ action, method }) {
-  //form submit
+  //form submit using fetch api
   const handleSubmit = (e) => {
     e.preventDefault(); //prevent default form submission behavior
     const formData = new FormData(e.target);

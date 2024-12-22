@@ -370,19 +370,19 @@ app.delete("/techstack/:id", async (req, res) => {
 });
 
 //tech stack update Api
-app.patch("/techstack/:id", upload.single("image"), async (req, res) => {
+app.patch("/techstack/:id", upload.single("logo"), async (req, res) => {
   try {
     const id = req.params.id;
     const data = req.body;
 
     //handle upload image file
     if (req.file) {
-      data.image = `/uploads/${req.file.filename}`;
+      data.logo = `/uploads/${req.file.filename}`;
     }
 
     //delete empty fileds
     Object.keys(data).forEach((key) => {
-      if (data[key] === "" && key !== "image") {
+      if (data[key] === "" && key !== "logo") {
         delete data[key];
       }
     });

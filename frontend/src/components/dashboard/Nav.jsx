@@ -14,7 +14,7 @@ function Nav() {
   return (
     <aside
       id="logo-sidebar"
-      className="fixed top-0 left-0 z-40 w-72 h-screen  p-1  bg-white"
+      className="fixed top-0 left-0 z-40 w-72 h-screen bg-white"
       aria-label="Sidebar"
     >
       <div className="h-full px-3 py-4 overflow-y-auto bg-gray-800 rounded-t-xl rounded-r-none ">

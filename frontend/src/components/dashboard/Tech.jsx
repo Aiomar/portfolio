@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
-import { FaRegTrashCan } from "react-icons/fa6";
+import { FaRegTrashCan, FaPenToSquare } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 export default function Tech({ id, link, logo, title, type }) {
+  const Navigate = useNavigate();
   return (
     <div className="flex flex-col w-52 h-52 bg-white mb-3 hover:scale-105 m-5 shadow rounded-2xl p-2">
       <div className="w-full">
@@ -22,6 +24,16 @@ export default function Tech({ id, link, logo, title, type }) {
           className="rounded-full p-2 hover:bg-red-500 float-right"
         >
           <FaRegTrashCan color="black " size={20} />
+        </button>
+        <button
+          onClick={() => {
+            Navigate("/dashboard/update-techstack", {
+              state: { id },
+            });
+          }}
+          className="float-right mr-1 hover:bg-blue-400 rounded-full p-2"
+        >
+          <FaPenToSquare color="black" size={20} />
         </button>
       </div>
       <a
