@@ -397,7 +397,7 @@ app.patch("/techstack/:id", upload.single("logo"), async (req, res) => {
         .json({ message: "couldnt find item in techStack" });
     }
 
-    return res.status(201).json({ message: "item updated succesfully" });
+    return res.status(200).json({ message: "item updated succesfully" });
   } catch (error) {
     return res.status(500).json({ error: error });
   }
