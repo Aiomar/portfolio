@@ -170,7 +170,7 @@ app.get("/auth", async (req, res) => {
 //The disk storage engine gives you full control on storing files to disk.
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../public/uploads");
+    cb(null, "../frontend/public/uploads");
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -348,6 +348,24 @@ app.get("/techstack", async (req, res) => {
     res.status(500).json({
       error: "could not fetch techstack from mongodb" + error.message,
     });
+  }
+});
+
+//tech stack
+app.delete("/techstack/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    const result = await StackModel.findByIdAndDelete(id);
+
+    if (!result) {
+      return res
+        .status(404)
+        .json({ message: "Failed to find and Delete stack" });
+    }
+    return res.status(200).json({ message: "Succes" });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
   }
 });
 

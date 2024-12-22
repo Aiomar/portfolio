@@ -7,7 +7,8 @@ export default function MyStack() {
       <div className="grid grid-cols-5">
         {stacks.map((stack) => (
           <Tech
-            key={stack.id}
+            key={stack._id}
+            id={stack._id}
             link={stack.link}
             logo={stack.logo}
             title={stack.title}
