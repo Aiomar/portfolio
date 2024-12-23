@@ -13,10 +13,7 @@ require("dotenv").config();
 const cors = require("cors");
 //Use cors package to allow cross origin requests
 app.use(
-  cors({
-    origin: "https://omaraidiportfolio.vercel.app",
-    credentials: true,
-  })
+  cors()
 );
 
 //REQUEST LIMITER
