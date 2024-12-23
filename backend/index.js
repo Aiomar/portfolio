@@ -404,7 +404,7 @@ app.patch("/techstack/:id", upload.single("logo"), async (req, res) => {
 });
 
 //serve the backend serever
-const PORT = process.env.Port || 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port :${PORT}`);
 });
