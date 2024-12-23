@@ -129,7 +129,7 @@ app.post("/login", loginlimiter, async (req, res) => {
       // save the tooken in a cookie
       res.cookie("authToken", token, {
         httpOnly: true, //prevnet client side js script edit
-        secure: false, //!set true in production
+        secure: true, 
         maxAge: 24 * 60 * 60 * 1000, // 1 day,
         sameSite: "strict", // this protects from CSRF attacks
       });
@@ -309,8 +309,6 @@ app.delete("/suggestion/:id", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-
-//TODO correct the nav link text-color changing logic when a section is in view port
 
 //Tech Stack Form Upload controller
 app.post("/techstack", upload.single("logo"), (req, res) => {
