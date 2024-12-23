@@ -12,9 +12,7 @@ require("dotenv").config();
 // cors package  to handle cross origin requests
 const cors = require("cors");
 //Use cors package to allow cross origin requests
-app.use(
-  cors()
-);
+app.use(cors());
 
 //REQUEST LIMITER
 // this package limits the numbers of request of a specific rout
@@ -55,7 +53,10 @@ const path = require("path");
 //Connecting to mongo db and verification
 // requiring mongoose package
 const mongoose = require("mongoose");
-mongoose.connect(process.env.DATABASE_URL);
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error : "));
