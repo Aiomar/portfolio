@@ -3,7 +3,7 @@ export default function FecthAnalyticsApi() {
   //Suggestions Fetch API
   const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/suggestions")
+    fetch("https://portfolio-8dam.onrender.com/suggestions")
       .then((res) => {
         return res.json();
       })
@@ -15,7 +15,7 @@ export default function FecthAnalyticsApi() {
   //Projects Fetch API
   const [projects, setProjects] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/projects")
+    fetch("https://portfolio-8dam.onrender.com/projects")
       .then((res) => {
         return res.json();
       })

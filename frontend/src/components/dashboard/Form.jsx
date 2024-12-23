@@ -20,7 +20,7 @@ export default function Form({ action, method }) {
       })
       .then(
         window.location.replace(
-          "http://localhost:5173/dashboard/current-projects"
+          "https://omaraidiportfolio.vercel.app/dashboard/current-projects"
         )
       )
       .catch((err) => console.error(err));

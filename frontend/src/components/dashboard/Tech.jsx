@@ -8,7 +8,7 @@ export default function Tech({ id, link, logo, title, type }) {
       <div className="w-full">
         <button
           onClick={() => {
-            fetch(`http://localhost:3000/techstack/${id}`, {
+            fetch(`https://portfolio-8dam.onrender.com/techstack/${id}`, {
               method: "DELETE",
             })
               .then((res) => {

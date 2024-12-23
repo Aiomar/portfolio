@@ -28,7 +28,7 @@ export default function Project({ id, image, title, details, status, link }) {
             {/*Delete suggestion button */}
             <button
               onClick={() => {
-                fetch(`http://localhost:3000/project/${id}`, {
+                fetch(`https://portfolio-8dam.onrender.com/project/${id}`, {
                   method: "DELETE",
                 })
                   .then((res) => {

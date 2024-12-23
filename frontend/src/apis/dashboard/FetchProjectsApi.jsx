@@ -5,7 +5,7 @@ export default function FecthProjectsApi() {
    
     //projects fetch api
     useEffect(() => {
-      fetch("http://localhost:3000/projects")
+      fetch("https://portfolio-8dam.onrender.com/projects")
         .then((res) => {
           return res.json();
         })

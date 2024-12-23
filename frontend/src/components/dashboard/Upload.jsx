@@ -15,10 +15,10 @@ export default function Upload() {
   //verifiy if the user is updating a project or uploading a new one
   useEffect(() => {
     if (id) {
-      setAction(`http://localhost:3000/project/${id}`);
+      setAction(`https://portfolio-8dam.onrender.com/project/${id}`);
       setMethod("PATCH");
     } else {
-      setAction("http://localhost:3000/upload-project");
+      setAction("https://portfolio-8dam.onrender.com/upload-project");
       setMethod("POST");
     }
   }, [id]);

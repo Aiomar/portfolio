@@ -18,7 +18,7 @@ export default function suggestion({
       <div className="float-end">
         <button
           onClick={() => {
-            fetch(`http://localhost:3000/suggestion/${id}`, {
+            fetch(`https://portfolio-8dam.onrender.com/suggestion/${id}`, {
               method: "DELETE",
             })
               .then((res) => {

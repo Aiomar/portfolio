@@ -5,7 +5,7 @@ export default function FecthStackApi() {
 
   //dashboard Tech Stack fetch API
   useEffect(() => {
-    fetch("http://localhost:3000/techstack")
+    fetch("https://portfolio-8dam.onrender.com/techstack")
       .then((res) => {
         return res.json();
       })

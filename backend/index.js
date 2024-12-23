@@ -14,7 +14,7 @@ const cors = require("cors");
 //Use cors package to allow cross origin requests
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://omaraidiportfolio.vercel.app/",
     credentials: true,
   })
 );
@@ -84,7 +84,9 @@ app.post("/suggestion", (req, res) => {
   db.collection("suggestions")
     .insertOne(suggestion)
     .then((result) => {
-      res.status(201).redirect("http://localhost:5173/?message=" + message);
+      res
+        .status(201)
+        .redirect("https://omaraidiportfolio.vercel.app/?message=" + message);
     })
     .catch((error) => {
       res
@@ -129,7 +131,7 @@ app.post("/login", loginlimiter, async (req, res) => {
       // save the tooken in a cookie
       res.cookie("authToken", token, {
         httpOnly: true, //prevnet client side js script edit
-        secure: true, 
+        secure: true,
         maxAge: 24 * 60 * 60 * 1000, // 1 day,
         sameSite: "strict", // this protects from CSRF attacks
       });
@@ -200,7 +202,8 @@ app.post("/upload-project", upload.single("image"), (req, res) => {
       res
         .status(201)
         .redirect(
-          "http://localhost:5173/dashboard/current-projects/?message=" + message
+          "https://omaraidiportfolio.vercel.app/dashboard/current-projects/?message=" +
+            message
         );
     })
     .catch((error) => {
@@ -327,7 +330,8 @@ app.post("/techstack", upload.single("logo"), (req, res) => {
       res
         .status(201)
         .redirect(
-          "http://localhost:5173/dashboard/techstack/?message=" + message
+          "https://omaraidiportfolio.vercel.app/dashboard/techstack/?message=" +
+            message
         );
     })
     .catch((error) => {

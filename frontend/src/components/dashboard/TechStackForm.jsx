@@ -18,7 +18,9 @@ export default function TechStackForm({ action, method }) {
         throw new Error("Failed to submit form");
       })
       .then(
-        window.location.replace("http://localhost:5173/dashboard/techstack")
+        window.location.replace(
+          "https://omaraidiportfolio.vercel.app//dashboard/techstack"
+        )
       )
       .catch((err) => console.error(err));
   };

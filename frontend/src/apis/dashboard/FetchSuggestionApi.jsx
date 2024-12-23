@@ -5,7 +5,7 @@ export default function FetchSuggestionApi() {
 
   //Suggestion fetch API
   useEffect(() => {
-    fetch("http://localhost:3000/suggestions")
+    fetch("https://portfolio-8dam.onrender.com/suggestions")
       .then((res) => {
         return res.json();
       })

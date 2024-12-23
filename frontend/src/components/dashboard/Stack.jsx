@@ -12,10 +12,10 @@ export default function Stack() {
   //verifiy if the user uploading or updating an item in tech stack
   useEffect(() => {
     if (id) {
-      setAction(`http://localhost:3000/techstack/${id}`);
+      setAction(`https://portfolio-8dam.onrender.com/techstack/${id}`);
       setMethod("PATCH");
     } else {
-      setAction("http://localhost:3000/techstack");
+      setAction("https://portfolio-8dam.onrender.com/techstack");
       setMethod("POST");
     }
   }, [id]);
