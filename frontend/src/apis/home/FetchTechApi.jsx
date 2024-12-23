@@ -1,11 +1,10 @@
-import { useState, useEffect} from "react";
-
+import { useState, useEffect } from "react";
 
 export default function FetchTechApi() {
   //tech stack fetch API
   const [stacks, setStacks] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/techstack")
+    fetch("https://portfolio-8dam.onrender.com/techstack")
       .then((res) => {
         return res.json();
       })

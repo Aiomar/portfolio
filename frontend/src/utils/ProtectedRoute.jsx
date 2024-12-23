@@ -6,7 +6,7 @@ export default function ProtectedRoute() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/auth", {
+    fetch("https://portfolio-8dam.onrender.com/auth", {
       method: "GET",
       credentials: "include",
     })

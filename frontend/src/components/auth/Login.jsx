@@ -11,12 +11,12 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    if(!isEmail(email)){
+    if (!isEmail(email)) {
       setError("Email is invalid");
     }
 
     try {
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await fetch("https://portfolio-8dam.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

@@ -31,7 +31,7 @@ export default function Form() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <form
-          action="http://localhost:3000/suggestion"
+          action="https://portfolio-8dam.onrender.com/suggestion"
           method="post"
           className="w-full  p-10 rounded-2xl mb-4 "
         >
@@ -126,7 +126,7 @@ export default function Form() {
             className="w-full px-4 py-2 text-white bg-sky-700 rounded-md hover:bg-sky-600 focus:outline-none"
           >
             <p className="flex flex-row items-center justify-center">
-              <FcFeedback className="mr-1 "/> Submit
+              <FcFeedback className="mr-1 " /> Submit
             </p>
           </button>
         </form>
