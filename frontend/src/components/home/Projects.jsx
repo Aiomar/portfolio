@@ -40,9 +40,8 @@ export default function Projects() {
           </h5>
         </div>
         <div
-          className="flex md:flex-row items-center rounded-2xl flex-col md:mb-0
-       "
-        >
+          className="grid grid-cols-3 "
+               >
           {projects.map((project) => (
             <Project
               key={project._id}
