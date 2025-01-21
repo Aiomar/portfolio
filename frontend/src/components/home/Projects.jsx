@@ -24,7 +24,7 @@ export default function Projects() {
   return (
     <section
       id="Projects"
-      className="w-full md:h-screen flex justify-center items-center flex-col bg-slate-100 dark:bg-gray-900"
+      className="w-full md:min-h-screen md:max-h-fit flex justify-center items-center flex-col bg-slate-100 dark:bg-gray-900"
     >
       <motion.div
         ref={ref}
