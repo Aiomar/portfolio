@@ -40,7 +40,7 @@ export default function Projects() {
           </h5>
         </div>
         <div
-          className="grid grid-cols-3 "
+          className="grid grid-cols-1 md:grid-cols-3 "
                >
           {projects.map((project) => (
             <Project
