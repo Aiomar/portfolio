@@ -6,8 +6,8 @@ export default function Project({ title, img, details, link, status }) {
     <div className="flex flex-col justify-center p-4">
       <div>
         <div
-          className="max-w-sm h-96  p-3 bg-white dark:bg-gray-800 hover:bg-gray-200
-          shadow-lg shadow-gray-700 dark:shadow-gray-950 rounded-3xl dark:hover:bg-gray-700 hover:scale-105"
+          className="max-w-sm h-96  p-3 bg-white dark:bg-gray-800 hover:bg-gray-100
+          shadow-lg shadow-gray-300 dark:shadow-gray-950 rounded-3xl dark:hover:bg-gray-700 hover:scale-105"
         >
           <img src={img} alt="" className="rounded-2xl " />
           <a href={link}>

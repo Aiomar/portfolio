@@ -10,7 +10,6 @@ import {
 } from "../../utils/control";
 
 export default function Header({ toggleNavBar }) {
-  
   //Dark theme button controller
   defaultTheme();
   const [dark, setDark] = useState(currentTheme());
@@ -22,7 +21,8 @@ export default function Header({ toggleNavBar }) {
 
   return (
     <header
-      className="flex md:flex-row md:justify-center fixed top-0 right-0 left-0 z-50  max-h-96 w-full bg-slate-100 dark:bg-gray-900bg-slate-100 dark:bg-gray-900"
+      className="flex md:flex-row md:justify-center fixed top-0 right-0 left-0 z-50 
+     max-h-96 w-full bg-slate-100 dark:bg-gray-900bg-slate-100 dark:bg-gray-900"
     >
       <nav
         className="flex md:justify-center md:ml-0 w-full px-4 min-h-24 bg-slate-100 dark:bg-gray-900 
@@ -33,9 +33,7 @@ export default function Header({ toggleNavBar }) {
             onClick={toggleNavBar}
             data-collapse-toggle="mobile-menu-2"
             type="button"
-            className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden
-             hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 
-            "
+            className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden"
             aria-controls="mobile-menu-2"
             aria-expanded="false"
           >

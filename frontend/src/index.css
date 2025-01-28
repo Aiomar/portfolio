@@ -7,8 +7,8 @@
   .animation-terminal {
     white-space: nowrap;
     overflow: hidden;
-    border-right: 1px solid gray ;
-    animation: typing 5s steps(30, end) infinite, blink 0.75s step-end infinite, pause 5s 5s infinite;
+    border-right: 1px solid gray;
+    animation: typing 5s steps(30, end),10s blink 0.75s ;
   }
 
   @keyframes typing {
@@ -26,11 +26,12 @@
     }
   }
 
-  @keyframes pause{
-    0%, 100%{
+  @keyframes pause {
+    0%,
+    100% {
       visibility: visible;
     }
-    50%{
+    50% {
       visibility: hidden;
     }
   }

@@ -14,11 +14,11 @@ export default function Nav() {
         <img
           src="assets/logo.svg"
           alt=""
-          className="w-10 mr-10 ml-10 md:ml-0"
+          className="w-10 mr-10 ml-10 md:ml-0 hidden md:flex"
         />
       </div>
       <ul className="flex flex-col  mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-2">
-        <li>
+        <li className="ml-5 md:ml-0">
           <a
             href="#Home"
             className={
@@ -28,13 +28,15 @@ export default function Nav() {
             }
             aria-current="page"
           >
-            <div className="flex justify-center items-center">
+            <div className="flex md:justify-center items-center">
               <FcBusinessman />
-              <p className="ml-1  poppins-semibold">About</p>
+              <p className="ml-1  poppins-semibold text-3xl md:text-base">
+                About
+              </p>
             </div>
           </a>
         </li>
-        <li>
+        <li className="ml-5 md:ml-0">
           <a
             href="#Projects"
             className={
@@ -43,13 +45,15 @@ export default function Nav() {
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
           >
-            <div className="flex justify-center items-center">
+            <div className="flex md:justify-center items-center">
               <FcBriefcase />
-              <p className=" ml-1 poppins-semibold">Projects</p>
+              <p className=" ml-1 poppins-semibold text-3xl md:text-base">
+                Projects
+              </p>
             </div>
           </a>
         </li>
-        <li>
+        <li className="ml-5 md:ml-0">
           <a
             href="#TechStack"
             className={
@@ -58,13 +62,15 @@ export default function Nav() {
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
           >
-            <div className="flex justify-center items-center">
+            <div className="flex md:justify-center items-center">
               <FcBookmark />
-              <p className="ml-1 poppins-semibold">Resume</p>
+              <p className="ml-1 poppins-semibold text-3xl md:text-base">
+                Resume
+              </p>
             </div>
           </a>
         </li>
-        <li>
+        <li className="ml-5 md:ml-0">
           <a
             href="#Contact"
             className={
@@ -73,9 +79,11 @@ export default function Nav() {
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
           >
-            <div className="flex justify-center items-center">
+            <div className="flex md:justify-center items-center">
               <FcConferenceCall />
-              <p className="ml-1 poppins-semibold">Contact</p>
+              <p className="ml-1 poppins-semibold text-3xl md:text-base">
+                Contact
+              </p>
             </div>
           </a>
         </li>

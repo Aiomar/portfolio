@@ -56,7 +56,7 @@ export default function Tech() {
     >
       <h1 className="text-gray-gray-900 dark:text-white text-5xl roboto-medium mt-32">
         {" "}
-        My Resume
+        Resume
       </h1>
       <nav className="flex justify-center w-full  mt-5 mb-10 mr-5">
         <Button

@@ -37,11 +37,11 @@ const Home = () => {
 
       {isOpen && (
         <aside
-          className="bg-gray-100 dark:bg-gray-900 h-screen z-10 fixed  w-60 shadow-lg shadow-gray-600 
+          className="bg-gray-100 dark:bg-gray-900 h-screen z-10 fixed  w-full shadow-lg shadow-gray-600 
           dark:shadow-gray-950"
           onClick={toggleNavBar}
         >
-          <div className="flex basis-full flex-col items-center lg:hidden mt-32">
+          <div className="lg:hidden mt-32">
             <Nav />
           </div>
         </aside>

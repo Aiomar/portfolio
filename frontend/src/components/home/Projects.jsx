@@ -20,11 +20,12 @@ export default function Projects() {
       mainControlls.start("visible");
     }
   }, [isInView, mainControlls]);
-  
+
   return (
     <section
       id="Projects"
-      className="w-full md:min-h-screen md:max-h-fit flex justify-center items-center flex-col bg-slate-100 dark:bg-gray-900"
+      className="w-full md:min-h-screen md:max-h-fit flex justify-center items-center flex-col
+       bg-slate-100 dark:bg-gray-900"
     >
       <motion.div
         ref={ref}
@@ -33,15 +34,12 @@ export default function Projects() {
         animate={mainControlls}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        {/*Section Title */}
-        <div className="flex justifiy-center ml-5 md:mt-5 mt-10">
-          <h5 className="mb-10 text-5xl font-semibold  tracking-tight text-gray-900 dark:text-white">
-            <div className="flex justify-center">My Projects</div>
+        <div className="flex justify-center items-center ml-5 md:mt-5 mt-10">
+          <h5 className="mb-10 text-5xl font-semibold text-gray-900 dark:text-white">
+            Projects
           </h5>
         </div>
-        <div
-          className="grid grid-cols-1 md:grid-cols-3 "
-               >
+        <div className="grid grid-cols-1 md:grid-cols-3 ">
           {projects.map((project) => (
             <Project
               key={project._id}
