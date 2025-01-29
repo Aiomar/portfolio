@@ -30,11 +30,10 @@ const Home = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-cover bg-center">
-      <div className="fixed top-0 right-0 left-0 z-40">
-        <Header toggleNavBar={toggleNavBar} />
+    <div className="w-full h-screen max-h-fit relative  bg-cover bg-center">
+      <div className="fixed top-0 right-0 left-0 z-40 w-full">
+        <Header toggleNavBar={toggleNavBar} isOpen={isOpen} />
       </div>
-
       {isOpen && (
         <aside
           className="bg-gray-100 dark:bg-gray-900 h-screen z-10 fixed  w-full shadow-lg shadow-gray-600 
@@ -46,24 +45,12 @@ const Home = () => {
           </div>
         </aside>
       )}
-      <div>
-        <Bio />
-      </div>
-      <div>
-        <Projects />
-      </div>
-      <div>
-        <Tech />
-      </div>
-      <div>
-        <Contact />
-      </div>
-      <div>
-        <Form />
-      </div>
-      <div>
-        <Footer />
-      </div>
+      <Bio />
+      <Projects />
+      <Tech />
+      <Contact />
+      <Form />
+      <Footer />
     </div>
   );
 };

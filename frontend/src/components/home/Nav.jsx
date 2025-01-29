@@ -29,7 +29,7 @@ export default function Nav() {
             aria-current="page"
           >
             <div className="flex md:justify-center items-center">
-              <FcBusinessman />
+              <FcBusinessman className="text-3xl md:text-base" />
               <p className="ml-1  poppins-semibold text-3xl md:text-base">
                 About
               </p>
@@ -46,7 +46,7 @@ export default function Nav() {
             }
           >
             <div className="flex md:justify-center items-center">
-              <FcBriefcase />
+              <FcBriefcase className="text-3xl md:text-base" />
               <p className=" ml-1 poppins-semibold text-3xl md:text-base">
                 Projects
               </p>
@@ -63,7 +63,7 @@ export default function Nav() {
             }
           >
             <div className="flex md:justify-center items-center">
-              <FcBookmark />
+              <FcBookmark className="text-3xl md:text-base" />
               <p className="ml-1 poppins-semibold text-3xl md:text-base">
                 Resume
               </p>
@@ -80,7 +80,7 @@ export default function Nav() {
             }
           >
             <div className="flex md:justify-center items-center">
-              <FcConferenceCall />
+              <FcConferenceCall className="text-3xl md:text-base" />
               <p className="ml-1 poppins-semibold text-3xl md:text-base">
                 Contact
               </p>

@@ -34,11 +34,11 @@ export default function Bio() {
           <img
             src="/assets/avater.png"
             className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-gray-200 shadow-md
-             dark:shadow-gray-800 float-right ml-6"
+             dark:shadow-gray-800 md:float-right md:ml-6 ml-32"
             alt="Omar Aidi"
           />
           {/* Bio title and text */}
-          <div>
+          <div className="flex items-center flex-col  md:items-start">
             <p className="text-lg sm:text-xl md:text-lg font-bold tracking-wider dark:text-white text-gray-800">
               Hi There 👋 I'm
             </p>
