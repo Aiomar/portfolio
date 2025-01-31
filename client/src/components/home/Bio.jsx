@@ -18,7 +18,7 @@ export default function Bio() {
 
   return (
     <section
-      id="Home"
+      id="About"
       className="w-full h-screen flex flex-col  items-center  bg-slate-100 dark:bg-gray-900 px-4 sm:px-8"
     >
       <motion.div

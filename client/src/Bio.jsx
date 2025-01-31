@@ -1,7 +1,7 @@
 function Bio() {
   return (
     <section
-      id="Home"
+      id="About"
       className="md:w-full md:h-screen flex justify-center bg-slate-900 flex-wrap"
     >
       <div className="md:mt-40 mt-32">
