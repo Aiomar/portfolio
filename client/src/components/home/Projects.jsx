@@ -46,6 +46,7 @@ export default function Projects() {
               title={project.title}
               deatils={project.details}
               link={project.link}
+              repo={project.repo}
               img={project.image}
               status={project.status}
             />

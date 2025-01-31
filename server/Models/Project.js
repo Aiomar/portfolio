@@ -16,6 +16,9 @@ const ProjectSchema = new mongoose.Schema({
   link: {
     type: String,
   },
+  repo: {
+    type: String,
+  },
 });
 
 const ProjectModel = mongoose.model("projects", ProjectSchema);

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { FaGithub, FaGlobe } from "react-icons/fa6";
 
-export default function Project({ title, img, details, link, status }) {
+export default function Project({ title, img, details, link, status, repo }) {
   return (
     <div className="flex flex-col justify-center p-4">
       <div>
@@ -32,7 +32,7 @@ export default function Project({ title, img, details, link, status }) {
           </label>
           <div className="mb-2">
             <a
-              href={link}
+              href={repo}
               target="_blank"
               className="inline-flex items-center px-3 py-2 text-sm font-medium text-center
              text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 
@@ -62,5 +62,6 @@ Project.propTypes = {
   img: PropTypes.string,
   details: PropTypes.string,
   link: PropTypes.string,
+  repo: PropTypes.string,
   status: PropTypes.string,
 };
