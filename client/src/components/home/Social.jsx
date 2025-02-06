@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 //Social component
 export default function Social({ img, link }) {
   return (
-    <div className="flex justify-center space-x-2">
+    <div className="flex justify-center mt-5">
       <a href={link} target="_blank" className="w-24 hover:scale-105">
         <div
           className="flex md:ml-10 justify-center max-w-sm rounded-2xl overflow-hidden shadow-md shadow-gray-400 

@@ -61,7 +61,7 @@ export default function Bio() {
             </p>
           </div>
         </div>
-        <div className="mt-32">
+        <div className="flex justify-center items-center mt-5 md:mt-32">
           <Contact />
         </div>
       </motion.div>

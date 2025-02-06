@@ -30,7 +30,7 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full h-screen max-h-fit relative  bg-cover bg-center">
+    <div className="w-full h-screen max-h-fit relative bg-cover bg-center overflow-x-hidden ">
       <div className="fixed top-0 right-0 left-0 z-40 w-full">
         <Header toggleNavBar={toggleNavBar} isOpen={isOpen} />
       </div>
