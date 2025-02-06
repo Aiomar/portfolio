@@ -38,7 +38,7 @@ export default function Contact() {
           name="Omar Aidi"
           details="Contact me on Facebook"
           img="assets/facebook.svg"
-          link="mailto:aidi360omar@gmail.com"
+          link="https://www.facebook.com/omar.aidi.12139"
         />
         <Social
           name="omar.ai.di"
