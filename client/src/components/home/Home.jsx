@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "./Header";
 import Bio from "./Bio";
-import Contact from "./Contact";
 import Projects from "./Projects";
 import Footer from "./Footer";
 import Tech from "./Tech";
@@ -31,13 +30,13 @@ const Home = () => {
 
   return (
     <div className="w-full h-screen max-h-fit relative bg-cover bg-center overflow-x-hidden ">
-      <div className="fixed top-0 right-0 left-0 z-40 w-full">
+      <div className="fixed  right-0 left-0 z-40 w-full">
         <Header toggleNavBar={toggleNavBar} isOpen={isOpen} />
       </div>
       {isOpen && (
         <aside
-          className="bg-gray-100 dark:bg-gray-900 h-screen z-10 fixed  w-full shadow-lg shadow-gray-600 
-          dark:shadow-gray-950"
+          className="bg-gray-100 dark:bg-gray-950 h-screen z-10 fixed  w-full shadow-lg shadow-gray-600 
+         "
           onClick={toggleNavBar}
         >
           <div className="lg:hidden mt-32">
