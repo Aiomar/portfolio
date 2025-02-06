@@ -4,7 +4,7 @@ import Header from "./Header";
 import Bio from "./Bio";
 import Projects from "./Projects";
 import Footer from "./Footer";
-import Tech from "./Tech";
+import Resume from "./Resume";
 import Form from "./Suggestion";
 import Nav from "./Nav";
 
@@ -46,7 +46,7 @@ const Home = () => {
       )}
       <Bio />
       <Projects />
-      <Tech />
+      <Resume />
       <Form />
       <Footer />
     </div>

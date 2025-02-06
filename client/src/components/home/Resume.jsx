@@ -5,7 +5,7 @@ import Education from "./Education";
 import FetchTechApi from "../../apis/home/FetchTechApi";
 import Button from "./buttons/Button";
 
-export default function Tech() {
+export default function Resume() {
   //Tech stack  Fetch Api call
   const stacks = FetchTechApi();
 
@@ -51,7 +51,7 @@ export default function Tech() {
 
   return (
     <section
-      id="TechStack"
+      id="Resume"
       className="flex flex-col items-center bg-slate-100 dark:bg-gray-900 w-full h-screen"
     >
       <h1 className="text-gray-gray-900 dark:text-white text-5xl roboto-medium mt-32">
