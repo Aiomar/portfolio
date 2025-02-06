@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "motion/react";
+import Contact from "./Contact";
 
 export default function Bio() {
   const motionVariants = {
@@ -59,6 +60,9 @@ export default function Bio() {
               Full Stack Web Developer.
             </p>
           </div>
+        </div>
+        <div className="mt-32">
+          <Contact />
         </div>
       </motion.div>
     </section>

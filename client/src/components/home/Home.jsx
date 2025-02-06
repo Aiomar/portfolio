@@ -48,7 +48,6 @@ const Home = () => {
       <Bio />
       <Projects />
       <Tech />
-      <Contact />
       <Form />
       <Footer />
     </div>

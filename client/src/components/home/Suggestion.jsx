@@ -20,7 +20,7 @@ export default function Form() {
 
   return (
     <section
-      id="Suggestion"
+      id="contact"
       className="flex flex-col justify-center items-center bg-slate-100 dark:bg-gray-900 w-full h-screen md:p-20"
     >
       <motion.div
