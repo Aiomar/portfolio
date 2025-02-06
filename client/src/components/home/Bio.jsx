@@ -33,7 +33,7 @@ export default function Bio() {
         <div className="relative">
           {/* Bio image */}
           <img
-            src="/assets/avater.png"
+            src="/assets/avater.jpg"
             className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-gray-200 shadow-md
              dark:shadow-gray-800 md:float-right md:ml-6 ml-32"
             alt="Omar Aidi"
