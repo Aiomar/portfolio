@@ -35,7 +35,7 @@ const Home = () => {
       </div>
       {isOpen && (
         <aside
-          className="bg-gray-100 dark:bg-gray-950 h-screen z-10 fixed  w-full shadow-lg shadow-gray-600 
+          className="bg-gray-100 dark:bg-gray-900 h-screen z-10 fixed  w-full shadow-lg shadow-gray-600 
          "
           onClick={toggleNavBar}
         >
