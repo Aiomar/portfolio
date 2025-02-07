@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Resume from "./Resume";
 import Form from "./Suggestion";
 import Nav from "./Nav";
+import Aside from "./Aside";
 
 const Home = () => {
   //Recuperation d une message depuis l url (Get method)
@@ -29,20 +30,12 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full h-screen max-h-fit relative bg-cover bg-center overflow-x-hidden ">
-      <div className="fixed  right-0 left-0 z-40 w-full">
+    <div className="w-full h-screen max-h-fit relative overflow-x-hidden">
+      <div className="fixed right-0 left-0 z-40 w-full">
         <Header toggleNavBar={toggleNavBar} isOpen={isOpen} />
       </div>
       {isOpen && (
-        <aside
-          className="bg-gray-100 dark:bg-gray-950 h-screen z-10 fixed  w-full shadow-lg shadow-gray-600 
-         "
-          onClick={toggleNavBar}
-        >
-          <div className="lg:hidden mt-32">
-            <Nav />
-          </div>
-        </aside>
+        <Aside toggleNavBar={toggleNavBar}/>
       )}
       <Bio />
       <Projects />

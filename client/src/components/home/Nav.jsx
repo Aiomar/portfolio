@@ -6,7 +6,6 @@ import {
 } from "react-icons/fc";
 
 export default function Nav() {
-  //Active Current Link
   const currentUrl = window.location.hash;
   return (
     <div className="flex flex-col md:flex-row">

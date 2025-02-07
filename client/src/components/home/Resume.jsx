@@ -58,7 +58,7 @@ export default function Resume() {
         {" "}
         Resume
       </h1>
-      <nav className="flex justify-center w-full  mt-5 mb-10 mr-5">
+      <nav className="flex justify-center w-full  mt-5 mb-10 mr-5 scale-90 md:scale-100">
         <Button
           className="w-56 h-16 ml-5 bg-gray-300 hover:bg-gray-300 dark:bg-gray-800 dark:text-white 
           roboto-regular dark:hover:bg-gray-700 rounded focus:ring-2 focus:ring-sky-400 text-xl"

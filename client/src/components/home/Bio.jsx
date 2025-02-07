@@ -20,7 +20,7 @@ export default function Bio() {
   return (
     <section
       id="About"
-      className="w-full h-screen flex flex-col  items-center  bg-slate-100 dark:bg-gray-900 px-4 sm:px-8"
+      className="w-full h-screen flex flex-col items-center bg-slate-100 dark:bg-gray-900 px-4"
     >
       <motion.div
         ref={ref}
@@ -31,14 +31,21 @@ export default function Bio() {
         transition={{ duration: 0.5, delay: 0.25 }}
       >
         <div className="relative">
-          {/* Bio image */}
           <img
-            src="/assets/avater.png"
+            src="assets/avatar.png"
             className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-gray-200 shadow-md
-             dark:shadow-gray-800 md:float-right md:ml-6 ml-32"
+             dark:shadow-gray-800 md:float-right md:ml-6 hidden md:flex"
             alt="Omar Aidi"
           />
-          {/* Bio title and text */}
+          <div className="md:hidden flex flex-col items-center mb-3">
+            <img
+              src="assets/avatar.png"
+              className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-gray-200 shadow-md
+             dark:shadow-gray-800 md:float-right md:ml-6 "
+              alt="Omar Aidi"
+            />
+          </div>
+
           <div className="flex items-center flex-col  md:items-start">
             <p className="text-lg sm:text-xl md:text-lg font-bold tracking-wider dark:text-white text-gray-800">
               Hi There 👋 I'm
@@ -46,15 +53,13 @@ export default function Bio() {
             <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
               Omar Aidi
             </h1>
-            <p className="mt-2 text-blue-500 text-lg sm:text-xl font-semibold">
+            <p className="mt-2 text-blue-500 md:text-2xl   sm:text-xl font-semibold text-2xl">
               Full Stack Web Developer
             </p>
           </div>
-          {/* Bio info */}
-          <div className="mt-8 text-sm sm:text-base md:text-md text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="mt-8 text-lg sm:text-base md:text-md text-gray-700 dark:text-gray-300 leading-relaxed">
             <p>
-              19 years old Computer Science Student at Institut Supérieur
-              d’Informatique et de Gestion de Kairouan. <br />
+              19 years old Computer Science Student at ISIGK
               I’m currently a junior Full Stack Web Developer looking for great
               work opportunities and actively working towards becoming a Senior
               Full Stack Web Developer.
