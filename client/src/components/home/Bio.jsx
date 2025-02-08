@@ -49,7 +49,7 @@ const Bio = forwardRef(({ id, visible }, ref) => {
 
           <div className="flex items-center flex-col  md:items-start">
             <p className="text-lg sm:text-xl md:text-lg font-bold tracking-wider dark:text-white text-gray-800">
-              Hi There 👋 I'm
+              Hi There 👋 I m
             </p>
             <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
               Omar Aidi
@@ -77,7 +77,7 @@ const Bio = forwardRef(({ id, visible }, ref) => {
 
 Bio.propTypes = {
   id: PropTypes.string.isRequired,
-  visible: PropTypes.string,
+  visible: PropTypes.string.isRequired,
 };
 Bio.displayName = "Bio";
 export default Bio;

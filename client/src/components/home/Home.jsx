@@ -42,7 +42,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     // Observe each section stored in the refs array

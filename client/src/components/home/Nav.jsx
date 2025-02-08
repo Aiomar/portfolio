@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export default function Nav({ visible, toggleNavBar }) {
+export default function Nav({ visible }) {
   return (
     <div className="flex flex-col md:flex-row">
       <div>
@@ -20,7 +20,6 @@ export default function Nav({ visible, toggleNavBar }) {
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
             aria-current="page"
-            onClick={toggleNavBar}
           >
             <div className="flex md:justify-center items-center">
               <p className="ml-1 poppins-semibold text-3xl md:text-base">
@@ -37,7 +36,6 @@ export default function Nav({ visible, toggleNavBar }) {
                 ? "block py-2 pr-4 pl-3 text-sky-500  lg:hover:bg-transparent lg:border-0 lg:p-0"
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
-            onClick={toggleNavBar}
           >
             <div className="flex md:justify-center items-center">
               <p className=" ml-1 poppins-semibold text-3xl md:text-base">
@@ -54,7 +52,6 @@ export default function Nav({ visible, toggleNavBar }) {
                 ? "block py-2 pr-4 pl-3 text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
-            onClick={toggleNavBar}
           >
             <div className="flex md:justify-center items-center">
               <p className="ml-1 poppins-semibold text-3xl md:text-base">
@@ -71,7 +68,6 @@ export default function Nav({ visible, toggleNavBar }) {
                 ? "block py-2 pr-4 pl-3 text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
-            onClick={toggleNavBar}
           >
             <div className="flex md:justify-center items-center">
               <p className="ml-1 poppins-semibold text-3xl md:text-base">
@@ -87,5 +83,4 @@ export default function Nav({ visible, toggleNavBar }) {
 
 Nav.propTypes = {
   visible: PropTypes.string.isRequired,
-  toggleNavBar: PropTypes.func.isRequired,
 };

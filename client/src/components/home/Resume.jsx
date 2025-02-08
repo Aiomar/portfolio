@@ -18,11 +18,12 @@ const Resume = forwardRef(({ id, visible }, ref) => {
 
   const mainControls = useAnimation();
   useEffect(() => {
-    if (visible == "resume") {
+    if (visible === "resume") {
       mainControls.start("visible");
     }
   }, [visible, mainControls]);
 
+  console.log("resume : ", visible); //!debug
   //Nav controll
   //Toggle tech stack div
   const [toggleTechStack, setToggleTechStack] = useState(true);
