@@ -1,21 +1,18 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./Header";
 import Bio from "./Bio";
 import Projects from "./Projects";
 import Footer from "./Footer";
 import Resume from "./Resume";
 import Form from "./Suggestion";
-import Nav from "./Nav";
 import Aside from "./Aside";
-
 const Home = () => {
-  //Recuperation d une message depuis l url (Get method)
+  // Retrieve message from URL
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const message = params.get("message");
 
-  //Affichage du message recuperer
   useEffect(() => {
     if (message) {
       alert(message);
@@ -23,24 +20,78 @@ const Home = () => {
     }
   }, [message]);
 
-  //Open/Close Mobile Nav controll
+  // Mobile navigation control
   const [isOpen, setIsOpen] = useState(false);
-  const toggleNavBar = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleNavBar = () => setIsOpen((prev) => !prev);
+
+  // Create a ref to store your sections’ DOM nodes
+  const sectionsRefs = useRef([]);
+
+  // State to track which section is visible
+  const [visible, setVisible] = useState("about");
+
+  // Setup Intersection Observer (using useLayoutEffect ensures refs are populated)
+  useEffect(() => {
+    const sections = ["about", "projects", "resume", "contact"];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && sections.includes(entry.target.id)) {
+            setVisible(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    // Observe each section stored in the refs array
+    sectionsRefs.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    const currentSection = sectionsRefs.current;
+    return () => {
+      currentSection.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
 
   return (
     <div className="w-full h-screen max-h-fit relative overflow-x-hidden">
       <div className="fixed right-0 left-0 z-40 w-full">
-        <Header toggleNavBar={toggleNavBar} isOpen={isOpen} />
+        <Header toggleNavBar={toggleNavBar} isOpen={isOpen} visible={visible} />
       </div>
-      {isOpen && (
-        <Aside toggleNavBar={toggleNavBar}/>
-      )}
-      <Bio />
-      <Projects />
-      <Resume />
-      <Form />
+      {isOpen && <Aside toggleNavBar={toggleNavBar} visible={visible} />}
+      <Bio
+        ref={(el) => {
+          sectionsRefs.current[0] = el;
+        }}
+        id="about"
+        visible={visible}
+      />
+      <Projects
+        ref={(el) => {
+          sectionsRefs.current[1] = el;
+        }}
+        id="projects"
+        visible={visible}
+      />
+      <Resume
+        ref={(el) => {
+          sectionsRefs.current[2] = el;
+        }}
+        id="resume"
+        visible={visible}
+      />
+      <Form
+        ref={(el) => {
+          sectionsRefs.current[3] = el;
+        }}
+        id="contact"
+        visible={visible}
+      />
       <Footer />
     </div>
   );

@@ -1,11 +1,12 @@
 import Prog from "./Prog";
-import { useState, useEffect, useRef } from "react";
-import { motion, useInView, useAnimation } from "motion/react";
+import { useState, useEffect, forwardRef } from "react";
+import { motion, useAnimation } from "motion/react";
 import Education from "./Education";
 import FetchTechApi from "../../apis/home/FetchTechApi";
 import Button from "./buttons/Button";
+import PropTypes from "prop-types";
 
-export default function Resume() {
+const Resume = forwardRef(({ id, visible }, ref) => {
   //Tech stack  Fetch Api call
   const stacks = FetchTechApi();
 
@@ -14,15 +15,13 @@ export default function Resume() {
     hidden: { opacity: 0, y: 75 },
     visible: { opacity: 1, y: 0 },
   };
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const mainControlls = useAnimation();
 
+  const mainControls = useAnimation();
   useEffect(() => {
-    if (isInView) {
-      mainControlls.start("visible");
+    if (visible == "resume") {
+      mainControls.start("visible");
     }
-  }, [isInView, mainControlls]);
+  }, [visible, mainControls]);
 
   //Nav controll
   //Toggle tech stack div
@@ -51,7 +50,8 @@ export default function Resume() {
 
   return (
     <section
-      id="Resume"
+      id={id}
+      ref={ref}
       className="flex flex-col items-center bg-slate-100 dark:bg-gray-900 w-full h-screen"
     >
       <h1 className="text-gray-gray-900 dark:text-white text-5xl roboto-medium mt-32">
@@ -84,7 +84,7 @@ export default function Resume() {
             ref={ref}
             variants={motionVariants}
             initial="hidden"
-            animate={mainControlls}
+            animate={mainControls}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex flex-col items-center w-full"
           >
@@ -106,7 +106,7 @@ export default function Resume() {
             ref={ref}
             variants={motionVariants}
             initial="hidden"
-            animate={mainControlls}
+            animate={mainControls}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <Education
@@ -130,7 +130,7 @@ export default function Resume() {
             ref={ref}
             variants={motionVariants}
             initial="hidden"
-            animate={mainControlls}
+            animate={mainControls}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <Education
@@ -145,4 +145,12 @@ export default function Resume() {
       )}
     </section>
   );
-}
+});
+
+Resume.propTypes = {
+  id: PropTypes.string.isRequired,
+  visible: PropTypes.string.isRequired,
+};
+
+Resume.displayName = "Resume";
+export default Resume;

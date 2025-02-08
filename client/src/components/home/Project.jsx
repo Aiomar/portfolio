@@ -3,7 +3,7 @@ import { FaGithub, FaGlobe } from "react-icons/fa6";
 
 export default function Project({ title, img, details, link, status, repo }) {
   return (
-    <div className="flex flex-col justify-center  md:p-4">
+    <div className="flex flex-col justify-center md:p-4">
       <div>
         <div
           className="max-w-sm h-96  p-3 bg-white dark:bg-gray-800 hover:bg-gray-100

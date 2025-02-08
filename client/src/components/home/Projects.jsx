@@ -1,8 +1,10 @@
 import Project from "./Project";
-import { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "motion/react";
+import PropTypes from "prop-types";
+import { useEffect, forwardRef } from "react";
+import { motion, useAnimation } from "motion/react";
 import FetchProjectApi from "../../apis/home/FetchProjectApi";
-export default function Projects() {
+
+const Projects = forwardRef(({ id, visible }, ref) => {
   //Project fetch API
   const projects = FetchProjectApi();
 
@@ -11,27 +13,27 @@ export default function Projects() {
     hidden: { opacity: 0, y: 75 },
     visible: { opacity: 1, y: 0 },
   };
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const mainControlls = useAnimation();
+
+  const mainControls = useAnimation();
 
   useEffect(() => {
-    if (isInView) {
-      mainControlls.start("visible");
+    if (visible === "projects") {
+      mainControls.start("visible");
     }
-  }, [isInView, mainControlls]);
+  }, [visible, mainControls]);
 
   return (
     <section
-      id="Projects"
+      id={id}
+      ref={ref}
       className="w-full md:min-h-screen md:max-h-fit flex justify-center items-center flex-col
-       bg-slate-100 dark:bg-gray-900"
+      bg-slate-100 dark:bg-gray-900"
     >
       <motion.div
         ref={ref}
         variants={motionVariants}
         initial="hidden"
-        animate={mainControlls}
+        animate={mainControls}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <div className="flex justify-center items-center ml-5 md:mt-5 mt-10">
@@ -55,4 +57,11 @@ export default function Projects() {
       </motion.div>
     </section>
   );
-}
+});
+
+Projects.propTypes = {
+  id: PropTypes.string.isRequired,
+  visible: PropTypes.string,
+};
+Projects.displayName = "Projects";
+export default Projects;

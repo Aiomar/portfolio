@@ -1,25 +1,26 @@
-import { useEffect, useRef } from "react";
-import { motion, useInView, useAnimation } from "motion/react";
+import { useEffect, forwardRef } from "react";
+import { motion, useAnimation } from "motion/react";
 import Contact from "./Contact";
+import PropTypes from "prop-types";
 
-export default function Bio() {
+const Bio = forwardRef(({ id, visible }, ref) => {
   const motionVariants = {
     hidden: { opacity: 0, y: 75 },
     visible: { opacity: 1, y: 0 },
   };
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+
   const mainControls = useAnimation();
 
   useEffect(() => {
-    if (isInView) {
+    if (visible === "about") {
       mainControls.start("visible");
     }
-  }, [isInView, mainControls]);
+  }, [visible, mainControls]);
 
   return (
     <section
-      id="About"
+      id={id}
+      ref={ref}
       className="w-full h-screen flex flex-col items-center bg-slate-100 dark:bg-gray-900 px-4"
     >
       <motion.div
@@ -34,14 +35,14 @@ export default function Bio() {
           <img
             src="assets/avatar.png"
             className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-gray-200 shadow-md
-             dark:shadow-gray-800 md:float-right md:ml-6 hidden md:flex"
+              dark:shadow-gray-800 md:float-right md:ml-6 hidden md:flex"
             alt="Omar Aidi"
           />
           <div className="md:hidden flex flex-col items-center mb-3">
             <img
               src="assets/avatar.png"
               className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-gray-200 shadow-md
-             dark:shadow-gray-800 md:float-right md:ml-6 "
+              dark:shadow-gray-800 md:float-right md:ml-6 "
               alt="Omar Aidi"
             />
           </div>
@@ -59,10 +60,10 @@ export default function Bio() {
           </div>
           <div className="mt-8 text-lg sm:text-base md:text-md text-gray-700 dark:text-gray-300 leading-relaxed">
             <p>
-              19 years old Computer Science Student at ISIGK
-              I’m currently a junior Full Stack Web Developer looking for great
-              work opportunities and actively working towards becoming a Senior
-              Full Stack Web Developer.
+              19 years old Computer Science Student at ISIGK I’m currently a
+              junior Full Stack Web Developer looking for great work
+              opportunities and actively working towards becoming a Senior Full
+              Stack Web Developer.
             </p>
           </div>
         </div>
@@ -72,4 +73,11 @@ export default function Bio() {
       </motion.div>
     </section>
   );
-}
+});
+
+Bio.propTypes = {
+  id: PropTypes.string.isRequired,
+  visible: PropTypes.string,
+};
+Bio.displayName = "Bio";
+export default Bio;

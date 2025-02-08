@@ -1,12 +1,6 @@
-import {
-  FcBriefcase,
-  FcBusinessman,
-  FcBookmark,
-  FcConferenceCall,
-} from "react-icons/fc";
+import PropTypes from "prop-types";
 
-export default function Nav() {
-  const currentUrl = window.location.hash;
+export default function Nav({ visible, toggleNavBar }) {
   return (
     <div className="flex flex-col md:flex-row">
       <div>
@@ -19,17 +13,17 @@ export default function Nav() {
       <ul className="flex flex-col  mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-2">
         <li className="ml-5 md:ml-0">
           <a
-            href="#About"
+            href="#about"
             className={
-              currentUrl == "#About"
+              visible === "about"
                 ? "block py-2 pr-4 pl-3 text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
             aria-current="page"
+            onClick={toggleNavBar}
           >
             <div className="flex md:justify-center items-center">
-              <FcBusinessman className="text-3xl md:text-base" />
-              <p className="ml-1  poppins-semibold text-3xl md:text-base">
+              <p className="ml-1 poppins-semibold text-3xl md:text-base">
                 About
               </p>
             </div>
@@ -37,15 +31,15 @@ export default function Nav() {
         </li>
         <li className="ml-5 md:ml-0">
           <a
-            href="#Projects"
+            href="#projects"
             className={
-              currentUrl == "#Projects"
+              visible === "projects"
                 ? "block py-2 pr-4 pl-3 text-sky-500  lg:hover:bg-transparent lg:border-0 lg:p-0"
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
+            onClick={toggleNavBar}
           >
             <div className="flex md:justify-center items-center">
-              <FcBriefcase className="text-3xl md:text-base" />
               <p className=" ml-1 poppins-semibold text-3xl md:text-base">
                 Projects
               </p>
@@ -54,15 +48,15 @@ export default function Nav() {
         </li>
         <li className="ml-5 md:ml-0">
           <a
-            href="#Resume"
+            href="#resume"
             className={
-              currentUrl == "#Resume"
+              visible === "resume"
                 ? "block py-2 pr-4 pl-3 text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
+            onClick={toggleNavBar}
           >
             <div className="flex md:justify-center items-center">
-              <FcBookmark className="text-3xl md:text-base" />
               <p className="ml-1 poppins-semibold text-3xl md:text-base">
                 Resume
               </p>
@@ -73,13 +67,13 @@ export default function Nav() {
           <a
             href="#contact"
             className={
-              currentUrl == "#Contact"
+              visible === "contact"
                 ? "block py-2 pr-4 pl-3 text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
                 : "block py-2 pr-4 pl-3  hover:text-sky-500 dark:text-white  dark:hover:text-sky-500 lg:hover:bg-transparent lg:border-0 lg:p-0"
             }
+            onClick={toggleNavBar}
           >
             <div className="flex md:justify-center items-center">
-              <FcConferenceCall className="text-3xl md:text-base" />
               <p className="ml-1 poppins-semibold text-3xl md:text-base">
                 Contact
               </p>
@@ -90,3 +84,8 @@ export default function Nav() {
     </div>
   );
 }
+
+Nav.propTypes = {
+  visible: PropTypes.string.isRequired,
+  toggleNavBar: PropTypes.func.isRequired,
+};

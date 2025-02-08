@@ -1,33 +1,32 @@
-import { useEffect, useRef } from "react";
-import { motion, useInView, useAnimation } from "motion/react";
+import { useEffect, forwardRef } from "react";
+import { motion, useAnimation } from "motion/react";
 import { FcFeedback } from "react-icons/fc";
+import PropTypes from "prop-types";
 
-export default function Form() {
+const Form = forwardRef(({ id, visible }, ref) => {
   //On Scroll Animation
   const motionVariants = {
     hidden: { opacity: 0, y: 75 },
     visible: { opacity: 1, y: 0 },
   };
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const mainControlls = useAnimation();
 
+  const mainControls = useAnimation();
   useEffect(() => {
-    if (isInView) {
-      mainControlls.start("visible");
+    if (visible == "contact") {
+      mainControls.start("visible");
     }
-  }, [isInView, mainControlls]);
-
+  }, [visible, mainControls]);
   return (
     <section
-      id="contact"
+      id={id}
+      ref={ref}
       className="flex flex-col justify-center items-center bg-slate-100 dark:bg-gray-900 w-full h-screen md:p-20"
     >
       <motion.div
         ref={ref}
         variants={motionVariants}
         initial="hidden"
-        animate={mainControlls}
+        animate={mainControls}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <form
@@ -49,8 +48,8 @@ export default function Form() {
               id="fullName"
               name="fullName"
               className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none  focus:border-none 
-              focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800 
-             dark:placeholder:text-gray-200 text-white"
+                focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800 
+              dark:placeholder:text-gray-200 text-white"
               placeholder="Enter your Name"
               required
             />
@@ -68,8 +67,8 @@ export default function Form() {
               id="phone"
               name="phone"
               className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none  
-              focus:border-none focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800
-              dark:placeholder:text-gray-200 text-white"
+                focus:border-none focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800
+                dark:placeholder:text-gray-200 text-white"
               placeholder="+216"
               required
             />
@@ -87,8 +86,8 @@ export default function Form() {
               id="email"
               name="email"
               className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none  
-              focus:border-none  focus:ring-2 focus:ring-sky-500 dark:bg-slate-800 dark:placeholder:text-gray-200
-              text-white"
+                focus:border-none  focus:ring-2 focus:ring-sky-500 dark:bg-slate-800 dark:placeholder:text-gray-200
+                text-white"
               placeholder="Enter your email"
               required
             />
@@ -106,8 +105,8 @@ export default function Form() {
               name="message"
               rows="4"
               className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none focus:border-none
-               focus:ring-2 roboto-regular focus:ring-sky-500 dark:bg-slate-800 
-              dark:placeholder:text-gray-200 text-white max-h-28"
+                focus:ring-2 roboto-regular focus:ring-sky-500 dark:bg-slate-800 
+                dark:placeholder:text-gray-200 text-white max-h-28"
               placeholder="Enter your message"
               required
             ></textarea>
@@ -133,4 +132,12 @@ export default function Form() {
       </motion.div>
     </section>
   );
-}
+});
+
+Form.propTypes = {
+  id: PropTypes.string.isRequired,
+  visible: PropTypes.string.isRequired,
+};
+
+Form.displayName = "Form";
+export default Form;

@@ -10,7 +10,7 @@ import {
   toggleDarkMode,
 } from "../../utils/control";
 
-export default function Header({ toggleNavBar, isOpen }) {
+export default function Header({ toggleNavBar, isOpen, visible }) {
   //Dark theme button controller
   defaultTheme();
   const [dark, setDark] = useState(currentTheme());
@@ -63,7 +63,7 @@ export default function Header({ toggleNavBar, isOpen }) {
           className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
           id="mobile-menu-2"
         >
-          <Nav />
+          <Nav visible={visible} toggleNavBar={toggleNavBar} />
         </div>
       </nav>
       {/*Dark mode / Light mode */}
@@ -92,4 +92,5 @@ export default function Header({ toggleNavBar, isOpen }) {
 Header.propTypes = {
   toggleNavBar: PropTypes.func.isRequired,
   isOpen: PropTypes.bool,
+  visible: PropTypes.string,
 };
