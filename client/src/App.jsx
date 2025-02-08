@@ -10,7 +10,6 @@ import MyStack from "./components/dashboard/MyStack";
 import Response from "./components/Response";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Login from "./components/auth/Login";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function App() {
   return (
@@ -40,7 +39,6 @@ export default function App() {
         {/*Auth Route */}
         <Route path="/login" element={<Login />} />
       </Routes>
-      <SpeedInsights />
     </>
   );
 }
