@@ -23,7 +23,6 @@ const Resume = forwardRef(({ id, visible }, ref) => {
     }
   }, [visible, mainControls]);
 
-  console.log("resume : ", visible); //!debug
   //Nav controll
   //Toggle tech stack div
   const [toggleTechStack, setToggleTechStack] = useState(true);
