@@ -35,7 +35,7 @@ export default function App() {
         </Route>
 
         {/*Response Route */}
-        <Route path="/pojectnothosted" element={<Response />} />
+        <Route path="/projectnothosted" element={<Response />} />
 
         {/*Auth Route */}
         <Route path="/login" element={<Login />} />
