@@ -16,6 +16,7 @@ const Form = forwardRef(({ id, visible }, ref) => {
       mainControls.start("visible");
     }
   }, [visible, mainControls]);
+
   return (
     <section
       id={id}
@@ -54,7 +55,6 @@ const Form = forwardRef(({ id, visible }, ref) => {
               required
             />
           </div>
-
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -62,16 +62,18 @@ const Form = forwardRef(({ id, visible }, ref) => {
             >
               <p className="ml-1 roboto-regular">PHONE NUMBER</p>
             </label>
-            <input
-              type="text"
-              id="phone"
-              name="phone"
-              className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none  
-                focus:border-none focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800
-                dark:placeholder:text-gray-200 text-black  dark:text-white"
-              placeholder="+216"
-              required
-            />
+            <div className="flex items-center justify-center">
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none  
+              focus:border-none focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800
+              dark:placeholder:text-gray-200 text-black  dark:text-white"
+                placeholder=""
+                required
+              />
+            </div>
           </div>
 
           <div className="mb-4">

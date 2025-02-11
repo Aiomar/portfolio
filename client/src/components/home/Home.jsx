@@ -9,6 +9,7 @@ import Form from "./Suggestion";
 import Aside from "./Aside";
 import { ToastContainer, toast } from "react-toastify";
 import { currentTheme } from "../../utils/control";
+import { FaArrowUp } from "react-icons/fa";
 
 const Home = () => {
   // Retrieve message from URL
@@ -73,6 +74,9 @@ const Home = () => {
     };
   }, []);
 
+  //* show scroll to top button
+  const showTopScroll = visible !== "about";
+
   return (
     <div className="w-full h-screen max-h-fit relative overflow-x-hidden">
       <div className="fixed right-0 left-0 z-40 w-full">
@@ -109,6 +113,18 @@ const Home = () => {
         visible={visible}
       />
       <Footer />
+      {showTopScroll && (
+        <div className="z-50 fixed bottom-20 right-7 md:bottom-5 md:right-10">
+          <a href="#about">
+            <button
+              className="flex items-center justify-center rounded-full w-12 h-12 bg-sky-400
+            over:bg-sky-300 transition-shadow shadow-md hover:scale-105"
+            >
+              <FaArrowUp size={20} className="text-white dark:text-black" />
+            </button>
+          </a>
+        </div>
+      )}
     </div>
   );
 };

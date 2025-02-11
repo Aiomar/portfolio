@@ -226,3 +226,7 @@
   font-weight: 900;
   font-style: italic;
 }
+
+.segoe-emoji {
+  font-family: "Segoe UI Emoji", sans-serif;
+}
