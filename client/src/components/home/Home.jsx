@@ -7,6 +7,8 @@ import Footer from "./Footer";
 import Resume from "./Resume";
 import Form from "./Suggestion";
 import Aside from "./Aside";
+import { ToastContainer, toast } from "react-toastify";
+
 const Home = () => {
   // Retrieve message from URL
   const location = useLocation();
@@ -15,7 +17,28 @@ const Home = () => {
 
   useEffect(() => {
     if (message) {
-      alert(message);
+      toast(message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />;
       window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, [message]);
