@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { FaGithub } from "react-icons/fa";
 
 export default function Nav({ visible }) {
   return (
@@ -73,6 +74,16 @@ export default function Nav({ visible }) {
               <p className="ml-1 poppins-semibold text-3xl md:text-base">
                 Contact
               </p>
+            </div>
+          </a>
+        </li>
+        <li className="ml-5 md:ml-0">
+          <a href="https://github.com/Aiomar/portfolio" target="_blank">
+            <div
+              className="flex md:justify-center items-center "
+              title="check portfolio on github"
+            >
+              <FaGithub size={25} className="text-black dark:text-white" />
             </div>
           </a>
         </li>
