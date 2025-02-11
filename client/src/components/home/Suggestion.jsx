@@ -106,7 +106,7 @@ const Form = forwardRef(({ id, visible }, ref) => {
               rows="4"
               className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none focus:border-none
                 focus:ring-2 roboto-regular focus:ring-sky-500 dark:bg-slate-800 
-                dark:placeholder:text-gray-200 text-white max-h-28"
+                dark:placeholder:text-gray-200 text-black max-h-28"
               placeholder="Enter your message"
               required
             ></textarea>
