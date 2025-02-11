@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     if (message) {
-      toast(message, {
+      toast.success(message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -27,18 +27,6 @@ const Home = () => {
         progress: undefined,
         theme: "dark",
       });
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />;
       window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, [message]);
@@ -86,6 +74,7 @@ const Home = () => {
       <div className="fixed right-0 left-0 z-40 w-full">
         <Header toggleNavBar={toggleNavBar} isOpen={isOpen} visible={visible} />
       </div>
+      <ToastContainer />
       {isOpen && <Aside toggleNavBar={toggleNavBar} visible={visible} />}
       <Bio
         ref={(el) => {
