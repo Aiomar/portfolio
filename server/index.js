@@ -328,8 +328,7 @@ app.post("/techstack", upload.single("logo"), (req, res) => {
       res
         .status(201)
         .redirect(
-          "https://omaraidiportfolio.vercel.app/dashboard/techstack/?message=" +
-            message
+          "https://aidiomar.vercel.app/dashboard/techstack/?message=" + message
         );
     })
     .catch((error) => {

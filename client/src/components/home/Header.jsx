@@ -22,7 +22,7 @@ export default function Header({ toggleNavBar, isOpen, visible }) {
 
   return (
     <header
-      className="flex md:flex-row md:justify-center fixed top-0 right-0 left-0 z-50 
+      className="flex md:flex-row md:justify-center fixed right-0 left-0 z-50 
       max-h-96 w-full bg-slate-100 dark:bg-gray-900bg-slate-100 dark:bg-gray-900"
     >
       <nav
