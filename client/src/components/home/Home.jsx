@@ -29,7 +29,7 @@ const Home = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: { theme },
+        theme,
       });
       window.history.replaceState({}, document.title, window.location.pathname);
     }
