@@ -15,9 +15,9 @@ const Home = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const message = params.get("message");
-  
-  //* get the current theme for toast 
-  const theme = currentTheme()?"light":"dark"};
+
+  //* get the current theme for toast
+  const theme = currentTheme() ? "light" : "dark";
 
   useEffect(() => {
     if (message) {
@@ -29,11 +29,11 @@ const Home = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: { theme},
+        theme: { theme },
       });
       window.history.replaceState({}, document.title, window.location.pathname);
     }
-  }, [message]);
+  }, [message, theme]);
 
   // Mobile navigation control
   const [isOpen, setIsOpen] = useState(false);
