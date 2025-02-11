@@ -49,7 +49,7 @@ const Form = forwardRef(({ id, visible }, ref) => {
               name="fullName"
               className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none  focus:border-none 
                 focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800 
-              dark:placeholder:text-gray-200 text-black"
+              dark:placeholder:text-gray-200 text-black dark:text-white"
               placeholder="Enter your Name"
               required
             />
@@ -68,7 +68,7 @@ const Form = forwardRef(({ id, visible }, ref) => {
               name="phone"
               className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none  
                 focus:border-none focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800
-                dark:placeholder:text-gray-200 text-black"
+                dark:placeholder:text-gray-200 text-black  dark:text-white"
               placeholder="+216"
               required
             />
@@ -98,15 +98,15 @@ const Form = forwardRef(({ id, visible }, ref) => {
               htmlFor="message"
               className="block text-sm font-medium dark:text-white"
             >
-              <p className="ml-1 roboto-regular"> MESSAGE</p>
+              <p className="ml-1 roboto-regular">MESSAGE</p>
             </label>
             <textarea
               id="message"
               name="message"
               rows="4"
               className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none focus:border-none
-                focus:ring-2 roboto-regular focus:ring-sky-500 dark:bg-slate-800 
-                dark:placeholder:text-gray-200 text-black max-h-28"
+              focus:ring-2 roboto-regular focus:ring-sky-500 dark:bg-slate-800 
+              dark:placeholder:text-gray-200 text-black  dark:text-white max-h-28"
               placeholder="Enter your message"
               required
             ></textarea>
