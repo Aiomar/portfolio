@@ -84,7 +84,7 @@ app.post("/suggestion", (req, res) => {
     .then((result) => {
       res
         .status(201)
-        .redirect("https://omaraidiportfolio.vercel.app/?message=" + message);
+        .redirect("https://aidiomar.vercel.app/?message=" + message);
     })
     .catch((error) => {
       res
@@ -200,7 +200,7 @@ app.post("/upload-project", upload.single("image"), (req, res) => {
       res
         .status(201)
         .redirect(
-          "https://omaraidiportfolio.vercel.app/dashboard/current-projects/?message=" +
+          "https://aidiomar.vercel.app/dashboard/current-projects/?message=" +
             message
         );
     })
