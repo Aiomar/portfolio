@@ -38,6 +38,15 @@
     }
   }
 }
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+}
 
 #preloader {
   background: rgb(17 24 39) url(/assets/loader.gif) no-repeat center center;

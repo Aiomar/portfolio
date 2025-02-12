@@ -78,7 +78,7 @@ const Home = () => {
   const showTopScroll = visible !== "about";
 
   return (
-    <div className="w-full h-screen max-h-fit relative overflow-x-hidden">
+    <div className="w-full h-screen max-h-fit relative overflow-x-hidden no-scrollbar">
       <div className="fixed right-0 left-0 z-40 w-full">
         <Header toggleNavBar={toggleNavBar} isOpen={isOpen} visible={visible} />
       </div>
