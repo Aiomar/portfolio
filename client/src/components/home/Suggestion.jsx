@@ -17,6 +17,11 @@ const Form = forwardRef(({ id, visible }, ref) => {
     }
   }, [visible, mainControls]);
 
+  //* add tn code
+  const updatePhone = () => {
+    document.getElementById("phone").value = "+216 ";
+  };
+
   return (
     <section
       id={id}
@@ -68,10 +73,11 @@ const Form = forwardRef(({ id, visible }, ref) => {
                 id="phone"
                 name="phone"
                 className="w-full px-5 py-2 mt-2 border border-gray-500 rounded-md focus:outline-none  
-              focus:border-none focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800
-              dark:placeholder:text-gray-200 text-black  dark:text-white"
-                placeholder=""
+                focus:border-none focus:ring-2 focus:ring-sky-500 roboto-regular dark:bg-slate-800
+                dark:placeholder:text-gray-200 text-black  dark:text-white"
                 required
+                placeholder="+216"
+                onClick={updatePhone}
               />
             </div>
           </div>

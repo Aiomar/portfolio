@@ -75,6 +75,12 @@ const { inflate } = require("zlib");
 app.post("/suggestion", (req, res) => {
   //Insertion de suggestion dans la base portfolio/suggestions (Mongodb)
   let suggestion = req.body;
+
+  //* delete all ocuurence of space in phone
+  let phone = suggestion.phone.toString();
+  phone = phone.replaceAll(" ", "");
+  suggestion.phone = phone;
+
   suggestion.uploadedAt = new Date();
   let message = "Your Suggestion sended with succes ! ";
 
