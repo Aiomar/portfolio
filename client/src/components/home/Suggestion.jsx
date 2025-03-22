@@ -26,7 +26,7 @@ const Form = forwardRef(({ id, visible }, ref) => {
     <section
       id={id}
       ref={ref}
-      className="flex flex-col justify-center items-center bg-slate-100 dark:bg-gray-950w-full h-screen md:p-20"
+      className="flex flex-col justify-center items-center bg-slate-100 dark:bg-gray-950 w-full h-screen md:p-20"
     >
       <motion.div
         ref={ref}

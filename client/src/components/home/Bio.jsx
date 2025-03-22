@@ -21,7 +21,7 @@ const Bio = forwardRef(({ id, visible }, ref) => {
     <section
       id={id}
       ref={ref}
-      className="w-full h-screen flex flex-col items-center bg-slate-100 dark:bg-gray-950px-4"
+      className="w-full h-screen flex flex-col items-center bg-slate-100 dark:bg-gray-950  px-4"
     >
       <motion.div
         ref={ref}
