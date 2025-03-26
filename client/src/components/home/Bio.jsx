@@ -33,14 +33,14 @@ const Bio = forwardRef(({ id, visible }, ref) => {
       >
         <div className="relative">
           <img
-            src="https://drive.google.com/file/d/1J09-38hsWGntRZj01W_c7p7h1HpGi14q/preview"
+            src="https://drive.google.com/u/0/drive-viewer/AKGpihbcTjnC6PRSjGCzW2mmXMkrGhVwee5jGbGmXAhaSGwKcWs7M9yQPDIiVuwQhBApWik9wkZcb-ZARbNZV9tgq-hWYgvX_ajxOKk=s1600-rw-v1"
             className="hidden rounded-full w-36 sm:w-44 md:w-52 border-4 border-black dark:border-gray-200 shadow-lg shadow-gray-400
               dark:shadow-gray-800 md:float-right md:ml-6 md:flex "
             alt="Omar Aidi"
           />
           <div className="md:hidden flex flex-col items-center mb-3">
             <img
-              src="https://drive.google.com/file/d/1J09-38hsWGntRZj01W_c7p7h1HpGi14q/preview"
+              src="https://drive.google.com/u/0/drive-viewer/AKGpihbcTjnC6PRSjGCzW2mmXMkrGhVwee5jGbGmXAhaSGwKcWs7M9yQPDIiVuwQhBApWik9wkZcb-ZARbNZV9tgq-hWYgvX_ajxOKk=s1600-rw-v1"
               className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-black dark:border-gray-200 shadow-lg shadow-gray-400
               dark:shadow-gray-800 md:float-right md:ml-6 "
               alt="Omar Aidi"
