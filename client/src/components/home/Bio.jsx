@@ -35,7 +35,7 @@ const Bio = forwardRef(({ id, visible }, ref) => {
           <img
             src="https://raw.githubusercontent.com/Aiomar/portfolio/refs/heads/main/server/dist/assets/avater.png"
             className="hidden rounded-full w-36 sm:w-44 md:w-52 border-4 border-black dark:border-gray-200 shadow-lg shadow-gray-400
-              dark:shadow-gray-800 md:float-right md:ml-6 hidden md:flex"
+              dark:shadow-gray-800 md:float-right md:ml-6 hidden "
             alt="Omar Aidi"
           />
           <div className="hidden flex flex-col items-center mb-3">
