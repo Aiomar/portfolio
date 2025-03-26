@@ -33,14 +33,14 @@ const Bio = forwardRef(({ id, visible }, ref) => {
       >
         <div className="relative">
           <img
-            src="https://drive.google.com/uc?export=view&id=1J09-38hsWGntRZj01W_c7p7h1HpGi14q"
+            src="/uploads/profile.png"
             className="hidden rounded-full w-36 sm:w-44 md:w-52 border-4 border-black dark:border-gray-200 shadow-lg shadow-gray-400
               dark:shadow-gray-800 md:float-right md:ml-6 md:flex "
             alt="Omar Aidi"
           />
           <div className="md:hidden flex flex-col items-center mb-3">
             <img
-              src="https://drive.google.com/uc?export=view&id=1J09-38hsWGntRZj01W_c7p7h1HpGi14q"
+              src="/uploads/profile.png"
               className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-black dark:border-gray-200 shadow-lg shadow-gray-400
               dark:shadow-gray-800 md:float-right md:ml-6 "
               alt="Omar Aidi"
