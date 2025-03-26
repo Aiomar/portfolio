@@ -52,7 +52,7 @@ const Resume = forwardRef(({ id, visible }, ref) => {
     <section
       id={id}
       ref={ref}
-      className="flex flex-col items-center bg-slate-100 dark:bg-gray-950 w-full h-screen"
+      className="flex flex-col items-center bg-slate-100 dark:bg-gray-900  w-full h-screen"
     >
       <h1 className="text-gray-gray-900 dark:text-white text-5xl roboto-medium mt-32">
         {" "}
@@ -79,7 +79,7 @@ const Resume = forwardRef(({ id, visible }, ref) => {
         />
       </nav>
       {toggleTechStack && !toggleEducation && !toggleExperience ? (
-        <div className="flex md:flex-col  items-center bg-slate-100 dark:bg-gray-950 w-full h-fit">
+        <div className="flex md:flex-col  items-center bg-slate-100 dark:bg-gray-900  w-full h-fit">
           <motion.div
             ref={ref}
             variants={motionVariants}
@@ -100,7 +100,7 @@ const Resume = forwardRef(({ id, visible }, ref) => {
       ) : toggleEducation && !toggleTechStack && !toggleExperience ? (
         <div
           id="Education"
-          className="flex flex-col  items-center bg-slate-100 dark:bg-gray-950 w-full h-screen "
+          className="flex flex-col  items-center bg-slate-100 dark:bg-gray-900  w-full h-screen "
         >
           <motion.div
             ref={ref}
@@ -124,7 +124,7 @@ const Resume = forwardRef(({ id, visible }, ref) => {
       ) : (
         <div
           id="Experience"
-          className="flex flex-col items-center bg-gray-100 dark:bg-gray-950 w-full h-screen"
+          className="flex flex-col items-center bg-gray-100 dark:bg-gray-900  w-full h-screen"
         >
           <motion.div
             ref={ref}

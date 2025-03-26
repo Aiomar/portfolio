@@ -27,7 +27,7 @@ const Projects = forwardRef(({ id, visible }, ref) => {
       id={id}
       ref={ref}
       className="w-full md:min-h-screen md:max-h-fit flex justify-center items-center flex-col
-      bg-slate-100 dark:bg-gray-950"
+      bg-slate-100 dark:bg-gray-900 "
     >
       <motion.div
         ref={ref}

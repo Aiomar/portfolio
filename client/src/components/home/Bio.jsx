@@ -21,7 +21,7 @@ const Bio = forwardRef(({ id, visible }, ref) => {
     <section
       id={id}
       ref={ref}
-      className="w-full h-screen flex flex-col items-center bg-slate-100 dark:bg-gray-950  px-4"
+      className="w-full h-screen flex flex-col items-center bg-slate-100 dark:bg-gray-900   px-4"
     >
       <motion.div
         ref={ref}
@@ -34,11 +34,11 @@ const Bio = forwardRef(({ id, visible }, ref) => {
         <div className="relative">
           <img
             src="https://raw.githubusercontent.com/Aiomar/portfolio/refs/heads/main/server/dist/assets/avater.png"
-            className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-black dark:border-gray-200 shadow-lg shadow-gray-400
+            className="hidden rounded-full w-36 sm:w-44 md:w-52 border-4 border-black dark:border-gray-200 shadow-lg shadow-gray-400
               dark:shadow-gray-800 md:float-right md:ml-6 hidden md:flex"
             alt="Omar Aidi"
           />
-          <div className="md:hidden flex flex-col items-center mb-3">
+          <div className="hidden flex flex-col items-center mb-3">
             <img
               src="assets/avatar.jpg"
               className="rounded-full w-36 sm:w-44 md:w-52 border-4 border-black dark:border-gray-200 shadow-lg shadow-gray-400

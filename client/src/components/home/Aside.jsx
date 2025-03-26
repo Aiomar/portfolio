@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default function Aside({ toggleNavBar, visible }) {
   return (
     <aside
-      className="bg-gray-100 dark:bg-gray-950 h-screen fixed  w-full shadow-lg shadow-gray-600 z-30"
+      className="bg-gray-100 dark:bg-gray-900  h-screen fixed  w-full shadow-lg shadow-gray-600 z-30"
       onClick={toggleNavBar}
     >
       <div className="lg:hidden mt-32">
