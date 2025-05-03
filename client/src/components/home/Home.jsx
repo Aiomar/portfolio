@@ -17,7 +17,6 @@ const Home = () => {
   const params = new URLSearchParams(location.search);
   const message = params.get("message");
 
-  //* get the current theme for toast
   const theme = currentTheme() ? "light" : "dark";
 
   useEffect(() => {
