@@ -16,28 +16,6 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-
-        {/*Protected Dashboard Rotue */}
-        <Route element={<ProtectedRoute />}>
-          {/*Dashboard Route */}
-          <Route path="/dashboard" element={<Dash />}>
-            {/*Analytics and Status Route*/}
-            <Route path="/dashboard/analytics" element={<Analytics />} />
-            <Route path="/dashboard/current-projects" element={<Projects />} />
-            <Route path="/dashboard/suggestions" element={<Suggestions />} />
-            <Route path="/dashboard/techstack" element={<MyStack />} />
-
-            {/*Update and Upload routes */}
-            <Route path="/dashboard/upload-project" element={<Upload />} />
-            <Route path="/dashboard/update-techstack" element={<Stack />} />
-          </Route>
-        </Route>
-
-        {/*Response Route */}
-        <Route path="/projectnothosted" element={<Response />} />
-
-        {/*Auth Route */}
-        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );

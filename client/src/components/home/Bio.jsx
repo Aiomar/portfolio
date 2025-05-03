@@ -46,13 +46,13 @@ const Bio = forwardRef(({ id, visible }, ref) => {
           </div>
 
           <div className="flex items-center flex-col  md:items-start">
-            <p className="text-lg sm:text-xl md:text-lg font-bold tracking-wider dark:text-white text-gray-800">
+            <p className="text-3xl sm:text-xl md:text-2xl font-bold tracking-wider dark:text-white text-gray-800">
               Hi There 👋 I m
             </p>
-            <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
+            <h1 className="mt-2l sm:text-4xl md:text-3xl font-extrabold text-gray-900 dark:text-white">
               Omar Aidi
             </h1>
-            <p className="mt-2 text-blue-500 md:text-2xl   sm:text-xl font-semibold text-2xl">
+            <p className="mt-2 text-blue-500 md:text-3xl   sm:text-xl font-semibold text-2xl">
               Full Stack Web Developer
             </p>
           </div>
